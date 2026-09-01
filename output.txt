@@ -1,0 +1,1251 @@
+[info] running (fork) LogAnalysis 
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/09/01 15:21:07 INFO SparkContext: Running Spark version 3.5.6
+26/09/01 15:21:07 INFO SparkContext: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/09/01 15:21:07 INFO SparkContext: Java version 17.0.20
+26/09/01 15:21:07 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/09/01 15:21:07 INFO ResourceUtils: ==============================================================
+26/09/01 15:21:07 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/09/01 15:21:07 INFO ResourceUtils: ==============================================================
+26/09/01 15:21:07 INFO SparkContext: Submitted application: Spark Log Analysis
+26/09/01 15:21:07 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/09/01 15:21:07 INFO ResourceProfile: Limiting resource is cpu
+26/09/01 15:21:07 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/09/01 15:21:07 INFO SecurityManager: Changing view acls to: sri
+26/09/01 15:21:07 INFO SecurityManager: Changing modify acls to: sri
+26/09/01 15:21:07 INFO SecurityManager: Changing view acls groups to: 
+26/09/01 15:21:07 INFO SecurityManager: Changing modify acls groups to: 
+26/09/01 15:21:07 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: sri; groups with view permissions: EMPTY; users with modify permissions: sri; groups with modify permissions: EMPTY
+26/09/01 15:21:08 INFO Utils: Successfully started service 'sparkDriver' on port 44853.
+26/09/01 15:21:08 INFO SparkEnv: Registering MapOutputTracker
+26/09/01 15:21:08 INFO SparkEnv: Registering BlockManagerMaster
+26/09/01 15:21:08 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/09/01 15:21:08 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/09/01 15:21:08 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/09/01 15:21:08 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-5caca6c5-b268-4f4a-a621-1694d2285920
+26/09/01 15:21:08 INFO MemoryStore: MemoryStore started with capacity 987.6 MiB
+26/09/01 15:21:08 INFO SparkEnv: Registering OutputCommitCoordinator
+26/09/01 15:21:08 INFO JettyUtils: Start Jetty 127.0.0.1:4040 for SparkUI
+26/09/01 15:21:08 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/09/01 15:21:08 INFO Executor: Starting executor ID driver on host localhost
+26/09/01 15:21:08 INFO Executor: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/09/01 15:21:08 INFO Executor: Java version 17.0.20
+26/09/01 15:21:08 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/09/01 15:21:08 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@2cae9b8 for default.
+26/09/01 15:21:08 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 38659.
+26/09/01 15:21:08 INFO NettyBlockTransferService: Server created on localhost:38659
+26/09/01 15:21:08 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/09/01 15:21:08 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, localhost, 38659, None)
+26/09/01 15:21:08 INFO BlockManagerMasterEndpoint: Registering block manager localhost:38659 with 987.6 MiB RAM, BlockManagerId(driver, localhost, 38659, None)
+26/09/01 15:21:08 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, localhost, 38659, None)
+26/09/01 15:21:08 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, localhost, 38659, None)
+Spark application started
+26/09/01 15:21:08 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+26/09/01 15:21:08 INFO SharedState: Warehouse path is 'file:/home/sri/spark-log-analysis/spark-warehouse'.
+26/09/01 15:21:09 INFO InMemoryFileIndex: It took 32 ms to list leaf files for 1 paths.
+26/09/01 15:21:09 INFO InMemoryFileIndex: It took 1 ms to list leaf files for 1 paths.
+26/09/01 15:21:11 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:11 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#0, None)) > 0)
+26/09/01 15:21:11 INFO CodeGenerator: Code generated in 147.237229 ms
+26/09/01 15:21:11 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 376.0 B, free 987.6 MiB)
+26/09/01 15:21:12 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 34.1 KiB, free 987.6 MiB)
+26/09/01 15:21:12 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on localhost:38659 (size: 34.1 KiB, free: 987.6 MiB)
+26/09/01 15:21:12 INFO SparkContext: Created broadcast 0 from csv at LogAnalysis.scala:19
+26/09/01 15:21:12 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:12 INFO SparkContext: Starting job: csv at LogAnalysis.scala:19
+26/09/01 15:21:12 INFO DAGScheduler: Got job 0 (csv at LogAnalysis.scala:19) with 1 output partitions
+26/09/01 15:21:12 INFO DAGScheduler: Final stage: ResultStage 0 (csv at LogAnalysis.scala:19)
+26/09/01 15:21:12 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:12 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:12 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[3] at csv at LogAnalysis.scala:19), which has no missing parents
+26/09/01 15:21:12 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 13.5 KiB, free 987.6 MiB)
+26/09/01 15:21:12 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 6.4 KiB, free 987.5 MiB)
+26/09/01 15:21:12 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on localhost:38659 (size: 6.4 KiB, free: 987.6 MiB)
+26/09/01 15:21:12 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:12 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[3] at csv at LogAnalysis.scala:19) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:12 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+26/09/01 15:21:12 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9618 bytes) 
+26/09/01 15:21:12 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+26/09/01 15:21:12 INFO CodeGenerator: Code generated in 20.688201 ms
+26/09/01 15:21:12 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:12 INFO CodeGenerator: Code generated in 13.633173 ms
+26/09/01 15:21:12 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1711 bytes result sent to driver
+26/09/01 15:21:12 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 221 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:12 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+26/09/01 15:21:12 INFO DAGScheduler: ResultStage 0 (csv at LogAnalysis.scala:19) finished in 0.327 s
+26/09/01 15:21:12 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:12 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+26/09/01 15:21:12 INFO DAGScheduler: Job 0 finished: csv at LogAnalysis.scala:19, took 0.377092 s
+26/09/01 15:21:12 INFO CodeGenerator: Code generated in 12.007364 ms
+26/09/01 15:21:12 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:12 INFO FileSourceStrategy: Post-Scan Filters: 
+26/09/01 15:21:12 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 376.0 B, free 987.5 MiB)
+26/09/01 15:21:12 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 34.1 KiB, free 987.5 MiB)
+26/09/01 15:21:12 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on localhost:38659 (size: 34.1 KiB, free: 987.5 MiB)
+26/09/01 15:21:12 INFO SparkContext: Created broadcast 2 from csv at LogAnalysis.scala:19
+26/09/01 15:21:12 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:12 INFO BlockManagerInfo: Removed broadcast_1_piece0 on localhost:38659 in memory (size: 6.4 KiB, free: 987.5 MiB)
+26/09/01 15:21:12 INFO SparkContext: Starting job: csv at LogAnalysis.scala:19
+26/09/01 15:21:12 INFO DAGScheduler: Got job 1 (csv at LogAnalysis.scala:19) with 1 output partitions
+26/09/01 15:21:12 INFO DAGScheduler: Final stage: ResultStage 1 (csv at LogAnalysis.scala:19)
+26/09/01 15:21:12 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:12 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:12 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[9] at csv at LogAnalysis.scala:19), which has no missing parents
+26/09/01 15:21:12 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 27.5 KiB, free 987.5 MiB)
+26/09/01 15:21:12 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 12.6 KiB, free 987.5 MiB)
+26/09/01 15:21:12 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on localhost:38659 (size: 12.6 KiB, free: 987.5 MiB)
+26/09/01 15:21:12 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:12 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[9] at csv at LogAnalysis.scala:19) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:12 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+26/09/01 15:21:12 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9618 bytes) 
+26/09/01 15:21:12 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+26/09/01 15:21:12 INFO CodeGenerator: Code generated in 14.183419 ms
+26/09/01 15:21:12 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:13 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1687 bytes result sent to driver
+26/09/01 15:21:13 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 286 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:13 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+26/09/01 15:21:13 INFO DAGScheduler: ResultStage 1 (csv at LogAnalysis.scala:19) finished in 0.338 s
+26/09/01 15:21:13 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:13 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+26/09/01 15:21:13 INFO DAGScheduler: Job 1 finished: csv at LogAnalysis.scala:19, took 0.347021 s
+===== LOG DATA =====
+26/09/01 15:21:13 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:13 INFO FileSourceStrategy: Post-Scan Filters: 
+26/09/01 15:21:13 INFO CodeGenerator: Code generated in 30.305968 ms
+26/09/01 15:21:13 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 376.0 B, free 987.5 MiB)
+26/09/01 15:21:13 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.5 MiB)
+26/09/01 15:21:13 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:13 INFO SparkContext: Created broadcast 4 from show at LogAnalysis.scala:33
+26/09/01 15:21:13 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:13 INFO SparkContext: Starting job: show at LogAnalysis.scala:33
+26/09/01 15:21:13 INFO DAGScheduler: Got job 2 (show at LogAnalysis.scala:33) with 1 output partitions
+26/09/01 15:21:13 INFO DAGScheduler: Final stage: ResultStage 2 (show at LogAnalysis.scala:33)
+26/09/01 15:21:13 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:13 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:13 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[13] at show at LogAnalysis.scala:33), which has no missing parents
+26/09/01 15:21:13 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 17.9 KiB, free 987.4 MiB)
+26/09/01 15:21:13 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 8.2 KiB, free 987.4 MiB)
+26/09/01 15:21:13 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on localhost:38659 (size: 8.2 KiB, free: 987.5 MiB)
+26/09/01 15:21:13 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:13 INFO BlockManagerInfo: Removed broadcast_3_piece0 on localhost:38659 in memory (size: 12.6 KiB, free: 987.5 MiB)
+26/09/01 15:21:13 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[13] at show at LogAnalysis.scala:33) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:13 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks resource profile 0
+26/09/01 15:21:13 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9618 bytes) 
+26/09/01 15:21:13 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
+26/09/01 15:21:13 INFO CodeGenerator: Code generated in 20.576936 ms
+26/09/01 15:21:13 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:13 INFO CodeGenerator: Code generated in 13.878858 ms
+26/09/01 15:21:13 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 1920 bytes result sent to driver
+26/09/01 15:21:13 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 102 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:13 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+26/09/01 15:21:13 INFO DAGScheduler: ResultStage 2 (show at LogAnalysis.scala:33) finished in 0.126 s
+26/09/01 15:21:13 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:13 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+26/09/01 15:21:13 INFO DAGScheduler: Job 2 finished: show at LogAnalysis.scala:33, took 0.132746 s
+26/09/01 15:21:13 INFO CodeGenerator: Code generated in 19.983683 ms
++-------------------+-----+------------+---------+------+-------------+
+|timestamp          |level|ip          |url      |status|response_time|
++-------------------+-----+------------+---------+------+-------------+
+|2026-09-01 10:15:01|INFO |192.168.1.10|/home    |200   |120          |
+|2026-09-01 10:15:03|INFO |192.168.1.11|/products|200   |250          |
+|2026-09-01 10:15:05|ERROR|192.168.1.12|/login   |500   |100          |
+|2026-09-01 10:15:07|INFO |192.168.1.10|/products|200   |300          |
+|2026-09-01 10:15:10|ERROR|192.168.1.15|/payment |500   |450          |
+|2026-09-01 10:15:12|INFO |192.168.1.10|/home    |200   |90           |
+|2026-09-01 10:15:15|INFO |192.168.1.20|/products|200   |500          |
+|2026-09-01 10:15:20|ERROR|192.168.1.12|/payment |500   |700          |
+|2026-09-01 10:15:25|INFO |192.168.1.11|/login   |200   |180          |
+|2026-09-01 10:15:30|INFO |192.168.1.10|/products|200   |350          |
++-------------------+-----+------------+---------+------+-------------+
+
+===== SCHEMA =====
+root
+ |-- timestamp: timestamp (nullable = true)
+ |-- level: string (nullable = true)
+ |-- ip: string (nullable = true)
+ |-- url: string (nullable = true)
+ |-- status: integer (nullable = true)
+ |-- response_time: integer (nullable = true)
+
+===== ERROR LOGS =====
+26/09/01 15:21:13 INFO FileSourceStrategy: Pushed Filters: IsNotNull(_c1),EqualTo(_c1,ERROR)
+26/09/01 15:21:13 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(_c1#18),(_c1#18 = ERROR)
+26/09/01 15:21:13 INFO CodeGenerator: Code generated in 16.107368 ms
+26/09/01 15:21:13 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 376.0 B, free 987.5 MiB)
+26/09/01 15:21:13 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.4 MiB)
+26/09/01 15:21:13 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:13 INFO SparkContext: Created broadcast 6 from show at LogAnalysis.scala:45
+26/09/01 15:21:13 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:13 INFO SparkContext: Starting job: show at LogAnalysis.scala:45
+26/09/01 15:21:13 INFO DAGScheduler: Got job 3 (show at LogAnalysis.scala:45) with 1 output partitions
+26/09/01 15:21:13 INFO DAGScheduler: Final stage: ResultStage 3 (show at LogAnalysis.scala:45)
+26/09/01 15:21:13 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:13 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:13 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[17] at show at LogAnalysis.scala:45), which has no missing parents
+26/09/01 15:21:13 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 18.6 KiB, free 987.4 MiB)
+26/09/01 15:21:13 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 8.6 KiB, free 987.4 MiB)
+26/09/01 15:21:13 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on localhost:38659 (size: 8.6 KiB, free: 987.5 MiB)
+26/09/01 15:21:13 INFO BlockManagerInfo: Removed broadcast_4_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:13 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:13 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[17] at show at LogAnalysis.scala:45) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:13 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks resource profile 0
+26/09/01 15:21:13 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9618 bytes) 
+26/09/01 15:21:13 INFO Executor: Running task 0.0 in stage 3.0 (TID 3)
+26/09/01 15:21:13 INFO BlockManagerInfo: Removed broadcast_5_piece0 on localhost:38659 in memory (size: 8.2 KiB, free: 987.5 MiB)
+26/09/01 15:21:13 INFO CodeGenerator: Code generated in 11.13737 ms
+26/09/01 15:21:13 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:13 INFO CodeGenerator: Code generated in 6.884761 ms
+26/09/01 15:21:13 INFO Executor: Finished task 0.0 in stage 3.0 (TID 3). 1733 bytes result sent to driver
+26/09/01 15:21:13 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 74 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:13 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
+26/09/01 15:21:13 INFO DAGScheduler: ResultStage 3 (show at LogAnalysis.scala:45) finished in 0.104 s
+26/09/01 15:21:13 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:13 INFO TaskSchedulerImpl: Killing all running tasks in stage 3: Stage finished
+26/09/01 15:21:13 INFO DAGScheduler: Job 3 finished: show at LogAnalysis.scala:45, took 0.112862 s
++-------------------+-----+------------+--------+------+-------------+
+|timestamp          |level|ip          |url     |status|response_time|
++-------------------+-----+------------+--------+------+-------------+
+|2026-09-01 10:15:05|ERROR|192.168.1.12|/login  |500   |100          |
+|2026-09-01 10:15:10|ERROR|192.168.1.15|/payment|500   |450          |
+|2026-09-01 10:15:20|ERROR|192.168.1.12|/payment|500   |700          |
++-------------------+-----+------------+--------+------+-------------+
+
+===== ERROR COUNT =====
+26/09/01 15:21:13 INFO FileSourceStrategy: Pushed Filters: IsNotNull(_c1),EqualTo(_c1,ERROR)
+26/09/01 15:21:13 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(_c1#18),(_c1#18 = ERROR)
+26/09/01 15:21:13 INFO CodeGenerator: Code generated in 7.586605 ms
+26/09/01 15:21:13 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 376.0 B, free 987.5 MiB)
+26/09/01 15:21:13 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.4 MiB)
+26/09/01 15:21:13 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:13 INFO SparkContext: Created broadcast 8 from count at LogAnalysis.scala:50
+26/09/01 15:21:13 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:14 INFO DAGScheduler: Registering RDD 21 (count at LogAnalysis.scala:50) as input to shuffle 0
+26/09/01 15:21:14 INFO DAGScheduler: Got map stage job 4 (count at LogAnalysis.scala:50) with 1 output partitions
+26/09/01 15:21:14 INFO DAGScheduler: Final stage: ShuffleMapStage 4 (count at LogAnalysis.scala:50)
+26/09/01 15:21:14 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:14 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:14 INFO DAGScheduler: Submitting ShuffleMapStage 4 (MapPartitionsRDD[21] at count at LogAnalysis.scala:50), which has no missing parents
+26/09/01 15:21:14 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 18.8 KiB, free 987.4 MiB)
+26/09/01 15:21:14 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 9.2 KiB, free 987.4 MiB)
+26/09/01 15:21:14 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on localhost:38659 (size: 9.2 KiB, free: 987.4 MiB)
+26/09/01 15:21:14 INFO BlockManagerInfo: Removed broadcast_6_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:14 INFO SparkContext: Created broadcast 9 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:14 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 4 (MapPartitionsRDD[21] at count at LogAnalysis.scala:50) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:14 INFO TaskSchedulerImpl: Adding task set 4.0 with 1 tasks resource profile 0
+26/09/01 15:21:14 INFO BlockManagerInfo: Removed broadcast_7_piece0 on localhost:38659 in memory (size: 8.6 KiB, free: 987.5 MiB)
+26/09/01 15:21:14 INFO TaskSetManager: Starting task 0.0 in stage 4.0 (TID 4) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:14 INFO Executor: Running task 0.0 in stage 4.0 (TID 4)
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 11.032422 ms
+26/09/01 15:21:14 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 8.150178 ms
+26/09/01 15:21:14 INFO Executor: Finished task 0.0 in stage 4.0 (TID 4). 1981 bytes result sent to driver
+26/09/01 15:21:14 INFO TaskSetManager: Finished task 0.0 in stage 4.0 (TID 4) in 79 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:14 INFO TaskSchedulerImpl: Removed TaskSet 4.0, whose tasks have all completed, from pool 
+26/09/01 15:21:14 INFO DAGScheduler: ShuffleMapStage 4 (count at LogAnalysis.scala:50) finished in 0.106 s
+26/09/01 15:21:14 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:14 INFO DAGScheduler: running: Set()
+26/09/01 15:21:14 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:14 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 9.824467 ms
+26/09/01 15:21:14 INFO SparkContext: Starting job: count at LogAnalysis.scala:50
+26/09/01 15:21:14 INFO DAGScheduler: Got job 5 (count at LogAnalysis.scala:50) with 1 output partitions
+26/09/01 15:21:14 INFO DAGScheduler: Final stage: ResultStage 6 (count at LogAnalysis.scala:50)
+26/09/01 15:21:14 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 5)
+26/09/01 15:21:14 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:14 INFO DAGScheduler: Submitting ResultStage 6 (MapPartitionsRDD[24] at count at LogAnalysis.scala:50), which has no missing parents
+26/09/01 15:21:14 INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 12.5 KiB, free 987.5 MiB)
+26/09/01 15:21:14 INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 987.5 MiB)
+26/09/01 15:21:14 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on localhost:38659 (size: 5.9 KiB, free: 987.5 MiB)
+26/09/01 15:21:14 INFO SparkContext: Created broadcast 10 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:14 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 6 (MapPartitionsRDD[24] at count at LogAnalysis.scala:50) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:14 INFO TaskSchedulerImpl: Adding task set 6.0 with 1 tasks resource profile 0
+26/09/01 15:21:14 INFO TaskSetManager: Starting task 0.0 in stage 6.0 (TID 5) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:14 INFO Executor: Running task 0.0 in stage 6.0 (TID 5)
+26/09/01 15:21:14 INFO ShuffleBlockFetcherIterator: Getting 1 (60.0 B) non-empty blocks including 1 (60.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:14 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 14 ms
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 10.021791 ms
+26/09/01 15:21:14 INFO Executor: Finished task 0.0 in stage 6.0 (TID 5). 4038 bytes result sent to driver
+26/09/01 15:21:14 INFO BlockManagerInfo: Removed broadcast_9_piece0 on localhost:38659 in memory (size: 9.2 KiB, free: 987.5 MiB)
+26/09/01 15:21:14 INFO TaskSetManager: Finished task 0.0 in stage 6.0 (TID 5) in 85 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:14 INFO TaskSchedulerImpl: Removed TaskSet 6.0, whose tasks have all completed, from pool 
+26/09/01 15:21:14 INFO DAGScheduler: ResultStage 6 (count at LogAnalysis.scala:50) finished in 0.100 s
+26/09/01 15:21:14 INFO DAGScheduler: Job 5 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:14 INFO TaskSchedulerImpl: Killing all running tasks in stage 6: Stage finished
+26/09/01 15:21:14 INFO DAGScheduler: Job 5 finished: count at LogAnalysis.scala:50, took 0.113667 s
+Total ERROR logs: 3
+===== LOG COUNT BY LEVEL =====
+26/09/01 15:21:14 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:14 INFO FileSourceStrategy: Post-Scan Filters: 
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 55.165653 ms
+26/09/01 15:21:14 INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 376.0 B, free 987.5 MiB)
+26/09/01 15:21:14 INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.4 MiB)
+26/09/01 15:21:14 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:14 INFO SparkContext: Created broadcast 11 from show at LogAnalysis.scala:62
+26/09/01 15:21:14 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:14 INFO DAGScheduler: Registering RDD 28 (show at LogAnalysis.scala:62) as input to shuffle 1
+26/09/01 15:21:14 INFO DAGScheduler: Got map stage job 6 (show at LogAnalysis.scala:62) with 1 output partitions
+26/09/01 15:21:14 INFO DAGScheduler: Final stage: ShuffleMapStage 7 (show at LogAnalysis.scala:62)
+26/09/01 15:21:14 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:14 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:14 INFO DAGScheduler: Submitting ShuffleMapStage 7 (MapPartitionsRDD[28] at show at LogAnalysis.scala:62), which has no missing parents
+26/09/01 15:21:14 INFO MemoryStore: Block broadcast_12 stored as values in memory (estimated size 39.6 KiB, free 987.4 MiB)
+26/09/01 15:21:14 INFO MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 18.7 KiB, free 987.4 MiB)
+26/09/01 15:21:14 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on localhost:38659 (size: 18.7 KiB, free: 987.4 MiB)
+26/09/01 15:21:14 INFO SparkContext: Created broadcast 12 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:14 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 7 (MapPartitionsRDD[28] at show at LogAnalysis.scala:62) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:14 INFO TaskSchedulerImpl: Adding task set 7.0 with 1 tasks resource profile 0
+26/09/01 15:21:14 INFO TaskSetManager: Starting task 0.0 in stage 7.0 (TID 6) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:14 INFO Executor: Running task 0.0 in stage 7.0 (TID 6)
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 36.979438 ms
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 7.720217 ms
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 4.805816 ms
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 5.995935 ms
+26/09/01 15:21:14 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:14 INFO Executor: Finished task 0.0 in stage 7.0 (TID 6). 2719 bytes result sent to driver
+26/09/01 15:21:14 INFO TaskSetManager: Finished task 0.0 in stage 7.0 (TID 6) in 129 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:14 INFO TaskSchedulerImpl: Removed TaskSet 7.0, whose tasks have all completed, from pool 
+26/09/01 15:21:14 INFO DAGScheduler: ShuffleMapStage 7 (show at LogAnalysis.scala:62) finished in 0.143 s
+26/09/01 15:21:14 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:14 INFO DAGScheduler: running: Set()
+26/09/01 15:21:14 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:14 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:14 INFO ShufflePartitionsUtil: For shuffle(1), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 11.005381 ms
+26/09/01 15:21:14 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 11.204357 ms
+26/09/01 15:21:14 INFO SparkContext: Starting job: show at LogAnalysis.scala:62
+26/09/01 15:21:14 INFO DAGScheduler: Got job 7 (show at LogAnalysis.scala:62) with 1 output partitions
+26/09/01 15:21:14 INFO DAGScheduler: Final stage: ResultStage 9 (show at LogAnalysis.scala:62)
+26/09/01 15:21:14 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 8)
+26/09/01 15:21:14 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:14 INFO DAGScheduler: Submitting ResultStage 9 (MapPartitionsRDD[32] at show at LogAnalysis.scala:62), which has no missing parents
+26/09/01 15:21:14 INFO MemoryStore: Block broadcast_13 stored as values in memory (estimated size 42.9 KiB, free 987.3 MiB)
+26/09/01 15:21:14 INFO MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 20.2 KiB, free 987.3 MiB)
+26/09/01 15:21:14 INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on localhost:38659 (size: 20.2 KiB, free: 987.4 MiB)
+26/09/01 15:21:14 INFO BlockManagerInfo: Removed broadcast_10_piece0 on localhost:38659 in memory (size: 5.9 KiB, free: 987.4 MiB)
+26/09/01 15:21:14 INFO SparkContext: Created broadcast 13 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:14 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 9 (MapPartitionsRDD[32] at show at LogAnalysis.scala:62) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:14 INFO TaskSchedulerImpl: Adding task set 9.0 with 1 tasks resource profile 0
+26/09/01 15:21:14 INFO TaskSetManager: Starting task 0.0 in stage 9.0 (TID 7) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:14 INFO Executor: Running task 0.0 in stage 9.0 (TID 7)
+26/09/01 15:21:14 INFO BlockManagerInfo: Removed broadcast_12_piece0 on localhost:38659 in memory (size: 18.7 KiB, free: 987.4 MiB)
+26/09/01 15:21:14 INFO BlockManagerInfo: Removed broadcast_8_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 5.744434 ms
+26/09/01 15:21:14 INFO ShuffleBlockFetcherIterator: Getting 1 (144.0 B) non-empty blocks including 1 (144.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:14 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 10.654803 ms
+26/09/01 15:21:14 INFO Executor: Finished task 0.0 in stage 9.0 (TID 7). 5167 bytes result sent to driver
+26/09/01 15:21:14 INFO TaskSetManager: Finished task 0.0 in stage 9.0 (TID 7) in 66 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:14 INFO TaskSchedulerImpl: Removed TaskSet 9.0, whose tasks have all completed, from pool 
+26/09/01 15:21:14 INFO DAGScheduler: ResultStage 9 (show at LogAnalysis.scala:62) finished in 0.086 s
+26/09/01 15:21:14 INFO DAGScheduler: Job 7 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:14 INFO TaskSchedulerImpl: Killing all running tasks in stage 9: Stage finished
+26/09/01 15:21:14 INFO DAGScheduler: Job 7 finished: show at LogAnalysis.scala:62, took 0.092374 s
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 7.33646 ms
+26/09/01 15:21:14 INFO CodeGenerator: Code generated in 7.857392 ms
++-----+-----+
+|level|count|
++-----+-----+
+|ERROR|3    |
+|INFO |7    |
++-----+-----+
+
+===== HTTP STATUS COUNT =====
+26/09/01 15:21:15 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:15 INFO FileSourceStrategy: Post-Scan Filters: 
+26/09/01 15:21:15 INFO CodeGenerator: Code generated in 35.845668 ms
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_14 stored as values in memory (estimated size 376.0 B, free 987.4 MiB)
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_14_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.4 MiB)
+26/09/01 15:21:15 INFO BlockManagerInfo: Added broadcast_14_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:15 INFO SparkContext: Created broadcast 14 from show at LogAnalysis.scala:72
+26/09/01 15:21:15 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:15 INFO DAGScheduler: Registering RDD 36 (show at LogAnalysis.scala:72) as input to shuffle 2
+26/09/01 15:21:15 INFO DAGScheduler: Got map stage job 8 (show at LogAnalysis.scala:72) with 1 output partitions
+26/09/01 15:21:15 INFO DAGScheduler: Final stage: ShuffleMapStage 10 (show at LogAnalysis.scala:72)
+26/09/01 15:21:15 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:15 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:15 INFO DAGScheduler: Submitting ShuffleMapStage 10 (MapPartitionsRDD[36] at show at LogAnalysis.scala:72), which has no missing parents
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_15 stored as values in memory (estimated size 39.2 KiB, free 987.4 MiB)
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_15_piece0 stored as bytes in memory (estimated size 18.6 KiB, free 987.3 MiB)
+26/09/01 15:21:15 INFO BlockManagerInfo: Added broadcast_15_piece0 in memory on localhost:38659 (size: 18.6 KiB, free: 987.4 MiB)
+26/09/01 15:21:15 INFO SparkContext: Created broadcast 15 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:15 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 10 (MapPartitionsRDD[36] at show at LogAnalysis.scala:72) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Adding task set 10.0 with 1 tasks resource profile 0
+26/09/01 15:21:15 INFO TaskSetManager: Starting task 0.0 in stage 10.0 (TID 8) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:15 INFO Executor: Running task 0.0 in stage 10.0 (TID 8)
+26/09/01 15:21:15 INFO CodeGenerator: Code generated in 22.222419 ms
+26/09/01 15:21:15 INFO CodeGenerator: Code generated in 7.780811 ms
+26/09/01 15:21:15 INFO CodeGenerator: Code generated in 5.450814 ms
+26/09/01 15:21:15 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:15 INFO Executor: Finished task 0.0 in stage 10.0 (TID 8). 2719 bytes result sent to driver
+26/09/01 15:21:15 INFO TaskSetManager: Finished task 0.0 in stage 10.0 (TID 8) in 84 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Removed TaskSet 10.0, whose tasks have all completed, from pool 
+26/09/01 15:21:15 INFO DAGScheduler: ShuffleMapStage 10 (show at LogAnalysis.scala:72) finished in 0.096 s
+26/09/01 15:21:15 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:15 INFO DAGScheduler: running: Set()
+26/09/01 15:21:15 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:15 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:15 INFO ShufflePartitionsUtil: For shuffle(2), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/09/01 15:21:15 INFO CodeGenerator: Code generated in 6.720625 ms
+26/09/01 15:21:15 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+26/09/01 15:21:15 INFO CodeGenerator: Code generated in 13.311984 ms
+26/09/01 15:21:15 INFO SparkContext: Starting job: show at LogAnalysis.scala:72
+26/09/01 15:21:15 INFO DAGScheduler: Got job 9 (show at LogAnalysis.scala:72) with 1 output partitions
+26/09/01 15:21:15 INFO DAGScheduler: Final stage: ResultStage 12 (show at LogAnalysis.scala:72)
+26/09/01 15:21:15 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 11)
+26/09/01 15:21:15 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:15 INFO DAGScheduler: Submitting ResultStage 12 (MapPartitionsRDD[40] at show at LogAnalysis.scala:72), which has no missing parents
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_16 stored as values in memory (estimated size 42.7 KiB, free 987.3 MiB)
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_16_piece0 stored as bytes in memory (estimated size 20.2 KiB, free 987.3 MiB)
+26/09/01 15:21:15 INFO BlockManagerInfo: Added broadcast_16_piece0 in memory on localhost:38659 (size: 20.2 KiB, free: 987.4 MiB)
+26/09/01 15:21:15 INFO SparkContext: Created broadcast 16 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:15 INFO BlockManagerInfo: Removed broadcast_15_piece0 on localhost:38659 in memory (size: 18.6 KiB, free: 987.4 MiB)
+26/09/01 15:21:15 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 12 (MapPartitionsRDD[40] at show at LogAnalysis.scala:72) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Adding task set 12.0 with 1 tasks resource profile 0
+26/09/01 15:21:15 INFO TaskSetManager: Starting task 0.0 in stage 12.0 (TID 9) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:15 INFO Executor: Running task 0.0 in stage 12.0 (TID 9)
+26/09/01 15:21:15 INFO BlockManagerInfo: Removed broadcast_13_piece0 on localhost:38659 in memory (size: 20.2 KiB, free: 987.4 MiB)
+26/09/01 15:21:15 INFO BlockManagerInfo: Removed broadcast_11_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:15 INFO CodeGenerator: Code generated in 5.103798 ms
+26/09/01 15:21:15 INFO ShuffleBlockFetcherIterator: Getting 1 (132.0 B) non-empty blocks including 1 (132.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:15 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+26/09/01 15:21:15 INFO CodeGenerator: Code generated in 9.555024 ms
+26/09/01 15:21:15 INFO Executor: Finished task 0.0 in stage 12.0 (TID 9). 5151 bytes result sent to driver
+26/09/01 15:21:15 INFO TaskSetManager: Finished task 0.0 in stage 12.0 (TID 9) in 39 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Removed TaskSet 12.0, whose tasks have all completed, from pool 
+26/09/01 15:21:15 INFO DAGScheduler: ResultStage 12 (show at LogAnalysis.scala:72) finished in 0.061 s
+26/09/01 15:21:15 INFO DAGScheduler: Job 9 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Killing all running tasks in stage 12: Stage finished
+26/09/01 15:21:15 INFO DAGScheduler: Job 9 finished: show at LogAnalysis.scala:72, took 0.072709 s
+26/09/01 15:21:15 INFO CodeGenerator: Code generated in 7.010145 ms
++------+-----+
+|status|count|
++------+-----+
+|200   |7    |
+|500   |3    |
++------+-----+
+
+===== REQUEST COUNT BY URL =====
+26/09/01 15:21:15 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:15 INFO FileSourceStrategy: Post-Scan Filters: 
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_17 stored as values in memory (estimated size 376.0 B, free 987.4 MiB)
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_17_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.4 MiB)
+26/09/01 15:21:15 INFO BlockManagerInfo: Added broadcast_17_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:15 INFO SparkContext: Created broadcast 17 from show at LogAnalysis.scala:82
+26/09/01 15:21:15 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:15 INFO DAGScheduler: Registering RDD 44 (show at LogAnalysis.scala:82) as input to shuffle 3
+26/09/01 15:21:15 INFO DAGScheduler: Got map stage job 10 (show at LogAnalysis.scala:82) with 1 output partitions
+26/09/01 15:21:15 INFO DAGScheduler: Final stage: ShuffleMapStage 13 (show at LogAnalysis.scala:82)
+26/09/01 15:21:15 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:15 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:15 INFO DAGScheduler: Submitting ShuffleMapStage 13 (MapPartitionsRDD[44] at show at LogAnalysis.scala:82), which has no missing parents
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_18 stored as values in memory (estimated size 39.6 KiB, free 987.4 MiB)
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_18_piece0 stored as bytes in memory (estimated size 18.7 KiB, free 987.3 MiB)
+26/09/01 15:21:15 INFO BlockManagerInfo: Added broadcast_18_piece0 in memory on localhost:38659 (size: 18.7 KiB, free: 987.4 MiB)
+26/09/01 15:21:15 INFO SparkContext: Created broadcast 18 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:15 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 13 (MapPartitionsRDD[44] at show at LogAnalysis.scala:82) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Adding task set 13.0 with 1 tasks resource profile 0
+26/09/01 15:21:15 INFO TaskSetManager: Starting task 0.0 in stage 13.0 (TID 10) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:15 INFO Executor: Running task 0.0 in stage 13.0 (TID 10)
+26/09/01 15:21:15 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:15 INFO BlockManagerInfo: Removed broadcast_16_piece0 on localhost:38659 in memory (size: 20.2 KiB, free: 987.4 MiB)
+26/09/01 15:21:15 INFO BlockManagerInfo: Removed broadcast_14_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:15 INFO Executor: Finished task 0.0 in stage 13.0 (TID 10). 2762 bytes result sent to driver
+26/09/01 15:21:15 INFO TaskSetManager: Finished task 0.0 in stage 13.0 (TID 10) in 67 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Removed TaskSet 13.0, whose tasks have all completed, from pool 
+26/09/01 15:21:15 INFO DAGScheduler: ShuffleMapStage 13 (show at LogAnalysis.scala:82) finished in 0.078 s
+26/09/01 15:21:15 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:15 INFO DAGScheduler: running: Set()
+26/09/01 15:21:15 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:15 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:15 INFO ShufflePartitionsUtil: For shuffle(3), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/09/01 15:21:15 INFO CodeGenerator: Code generated in 5.820711 ms
+26/09/01 15:21:15 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+26/09/01 15:21:15 INFO SparkContext: Starting job: show at LogAnalysis.scala:82
+26/09/01 15:21:15 INFO DAGScheduler: Got job 11 (show at LogAnalysis.scala:82) with 1 output partitions
+26/09/01 15:21:15 INFO DAGScheduler: Final stage: ResultStage 15 (show at LogAnalysis.scala:82)
+26/09/01 15:21:15 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 14)
+26/09/01 15:21:15 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:15 INFO DAGScheduler: Submitting ResultStage 15 (MapPartitionsRDD[48] at show at LogAnalysis.scala:82), which has no missing parents
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_19 stored as values in memory (estimated size 42.6 KiB, free 987.4 MiB)
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_19_piece0 stored as bytes in memory (estimated size 20.1 KiB, free 987.4 MiB)
+26/09/01 15:21:15 INFO BlockManagerInfo: Added broadcast_19_piece0 in memory on localhost:38659 (size: 20.1 KiB, free: 987.5 MiB)
+26/09/01 15:21:15 INFO SparkContext: Created broadcast 19 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:15 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 15 (MapPartitionsRDD[48] at show at LogAnalysis.scala:82) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Adding task set 15.0 with 1 tasks resource profile 0
+26/09/01 15:21:15 INFO TaskSetManager: Starting task 0.0 in stage 15.0 (TID 11) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:15 INFO Executor: Running task 0.0 in stage 15.0 (TID 11)
+26/09/01 15:21:15 INFO CodeGenerator: Code generated in 4.811968 ms
+26/09/01 15:21:15 INFO ShuffleBlockFetcherIterator: Getting 1 (296.0 B) non-empty blocks including 1 (296.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:15 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/09/01 15:21:15 INFO Executor: Finished task 0.0 in stage 15.0 (TID 11). 5273 bytes result sent to driver
+26/09/01 15:21:15 INFO TaskSetManager: Finished task 0.0 in stage 15.0 (TID 11) in 28 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Removed TaskSet 15.0, whose tasks have all completed, from pool 
+26/09/01 15:21:15 INFO DAGScheduler: ResultStage 15 (show at LogAnalysis.scala:82) finished in 0.039 s
+26/09/01 15:21:15 INFO DAGScheduler: Job 11 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Killing all running tasks in stage 15: Stage finished
+26/09/01 15:21:15 INFO DAGScheduler: Job 11 finished: show at LogAnalysis.scala:82, took 0.045490 s
++---------+-----+
+|url      |count|
++---------+-----+
+|/products|4    |
+|/login   |2    |
+|/home    |2    |
+|/payment |2    |
++---------+-----+
+
+===== REQUEST COUNT BY IP =====
+26/09/01 15:21:15 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:15 INFO FileSourceStrategy: Post-Scan Filters: 
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_20 stored as values in memory (estimated size 376.0 B, free 987.4 MiB)
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_20_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.3 MiB)
+26/09/01 15:21:15 INFO BlockManagerInfo: Added broadcast_20_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:15 INFO SparkContext: Created broadcast 20 from show at LogAnalysis.scala:92
+26/09/01 15:21:15 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:15 INFO DAGScheduler: Registering RDD 52 (show at LogAnalysis.scala:92) as input to shuffle 4
+26/09/01 15:21:15 INFO DAGScheduler: Got map stage job 12 (show at LogAnalysis.scala:92) with 1 output partitions
+26/09/01 15:21:15 INFO DAGScheduler: Final stage: ShuffleMapStage 16 (show at LogAnalysis.scala:92)
+26/09/01 15:21:15 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:15 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:15 INFO DAGScheduler: Submitting ShuffleMapStage 16 (MapPartitionsRDD[52] at show at LogAnalysis.scala:92), which has no missing parents
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_21 stored as values in memory (estimated size 39.6 KiB, free 987.3 MiB)
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_21_piece0 stored as bytes in memory (estimated size 18.7 KiB, free 987.3 MiB)
+26/09/01 15:21:15 INFO BlockManagerInfo: Removed broadcast_19_piece0 on localhost:38659 in memory (size: 20.1 KiB, free: 987.4 MiB)
+26/09/01 15:21:15 INFO BlockManagerInfo: Added broadcast_21_piece0 in memory on localhost:38659 (size: 18.7 KiB, free: 987.4 MiB)
+26/09/01 15:21:15 INFO SparkContext: Created broadcast 21 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:15 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 16 (MapPartitionsRDD[52] at show at LogAnalysis.scala:92) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Adding task set 16.0 with 1 tasks resource profile 0
+26/09/01 15:21:15 INFO TaskSetManager: Starting task 0.0 in stage 16.0 (TID 12) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:15 INFO Executor: Running task 0.0 in stage 16.0 (TID 12)
+26/09/01 15:21:15 INFO BlockManagerInfo: Removed broadcast_18_piece0 on localhost:38659 in memory (size: 18.7 KiB, free: 987.4 MiB)
+26/09/01 15:21:15 INFO BlockManagerInfo: Removed broadcast_17_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:15 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:15 INFO Executor: Finished task 0.0 in stage 16.0 (TID 12). 2719 bytes result sent to driver
+26/09/01 15:21:15 INFO TaskSetManager: Finished task 0.0 in stage 16.0 (TID 12) in 60 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Removed TaskSet 16.0, whose tasks have all completed, from pool 
+26/09/01 15:21:15 INFO DAGScheduler: ShuffleMapStage 16 (show at LogAnalysis.scala:92) finished in 0.079 s
+26/09/01 15:21:15 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:15 INFO DAGScheduler: running: Set()
+26/09/01 15:21:15 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:15 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:15 INFO ShufflePartitionsUtil: For shuffle(4), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/09/01 15:21:15 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+26/09/01 15:21:15 INFO SparkContext: Starting job: show at LogAnalysis.scala:92
+26/09/01 15:21:15 INFO DAGScheduler: Got job 13 (show at LogAnalysis.scala:92) with 1 output partitions
+26/09/01 15:21:15 INFO DAGScheduler: Final stage: ResultStage 18 (show at LogAnalysis.scala:92)
+26/09/01 15:21:15 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 17)
+26/09/01 15:21:15 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:15 INFO DAGScheduler: Submitting ResultStage 18 (MapPartitionsRDD[56] at show at LogAnalysis.scala:92), which has no missing parents
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_22 stored as values in memory (estimated size 42.5 KiB, free 987.4 MiB)
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_22_piece0 stored as bytes in memory (estimated size 20.1 KiB, free 987.4 MiB)
+26/09/01 15:21:15 INFO BlockManagerInfo: Added broadcast_22_piece0 in memory on localhost:38659 (size: 20.1 KiB, free: 987.5 MiB)
+26/09/01 15:21:15 INFO SparkContext: Created broadcast 22 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:15 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 18 (MapPartitionsRDD[56] at show at LogAnalysis.scala:92) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Adding task set 18.0 with 1 tasks resource profile 0
+26/09/01 15:21:15 INFO TaskSetManager: Starting task 0.0 in stage 18.0 (TID 13) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:15 INFO Executor: Running task 0.0 in stage 18.0 (TID 13)
+26/09/01 15:21:15 INFO ShuffleBlockFetcherIterator: Getting 1 (400.0 B) non-empty blocks including 1 (400.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:15 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+26/09/01 15:21:15 INFO Executor: Finished task 0.0 in stage 18.0 (TID 13). 5354 bytes result sent to driver
+26/09/01 15:21:15 INFO TaskSetManager: Finished task 0.0 in stage 18.0 (TID 13) in 25 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Removed TaskSet 18.0, whose tasks have all completed, from pool 
+26/09/01 15:21:15 INFO DAGScheduler: ResultStage 18 (show at LogAnalysis.scala:92) finished in 0.035 s
+26/09/01 15:21:15 INFO DAGScheduler: Job 13 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:15 INFO TaskSchedulerImpl: Killing all running tasks in stage 18: Stage finished
+26/09/01 15:21:15 INFO DAGScheduler: Job 13 finished: show at LogAnalysis.scala:92, took 0.042173 s
++------------+-----+
+|ip          |count|
++------------+-----+
+|192.168.1.10|4    |
+|192.168.1.11|2    |
+|192.168.1.12|2    |
+|192.168.1.15|1    |
+|192.168.1.20|1    |
++------------+-----+
+
+===== AVERAGE RESPONSE TIME =====
+26/09/01 15:21:15 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:15 INFO FileSourceStrategy: Post-Scan Filters: 
+26/09/01 15:21:15 INFO CodeGenerator: Code generated in 9.914417 ms
+26/09/01 15:21:15 INFO MemoryStore: Block broadcast_23 stored as values in memory (estimated size 376.0 B, free 987.4 MiB)
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_23_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.3 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Added broadcast_23_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:16 INFO SparkContext: Created broadcast 23 from first at LogAnalysis.scala:98
+26/09/01 15:21:16 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:16 INFO DAGScheduler: Registering RDD 60 (first at LogAnalysis.scala:98) as input to shuffle 5
+26/09/01 15:21:16 INFO DAGScheduler: Got map stage job 14 (first at LogAnalysis.scala:98) with 1 output partitions
+26/09/01 15:21:16 INFO DAGScheduler: Final stage: ShuffleMapStage 19 (first at LogAnalysis.scala:98)
+26/09/01 15:21:16 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:16 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:16 INFO DAGScheduler: Submitting ShuffleMapStage 19 (MapPartitionsRDD[60] at first at LogAnalysis.scala:98), which has no missing parents
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_24 stored as values in memory (estimated size 20.2 KiB, free 987.3 MiB)
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_24_piece0 stored as bytes in memory (estimated size 9.6 KiB, free 987.3 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Added broadcast_24_piece0 in memory on localhost:38659 (size: 9.6 KiB, free: 987.4 MiB)
+26/09/01 15:21:16 INFO SparkContext: Created broadcast 24 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:16 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 19 (MapPartitionsRDD[60] at first at LogAnalysis.scala:98) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Adding task set 19.0 with 1 tasks resource profile 0
+26/09/01 15:21:16 INFO TaskSetManager: Starting task 0.0 in stage 19.0 (TID 14) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:16 INFO Executor: Running task 0.0 in stage 19.0 (TID 14)
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 10.232015 ms
+26/09/01 15:21:16 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:16 INFO Executor: Finished task 0.0 in stage 19.0 (TID 14). 1925 bytes result sent to driver
+26/09/01 15:21:16 INFO TaskSetManager: Finished task 0.0 in stage 19.0 (TID 14) in 35 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Removed TaskSet 19.0, whose tasks have all completed, from pool 
+26/09/01 15:21:16 INFO DAGScheduler: ShuffleMapStage 19 (first at LogAnalysis.scala:98) finished in 0.047 s
+26/09/01 15:21:16 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:16 INFO DAGScheduler: running: Set()
+26/09/01 15:21:16 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:16 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 14.999545 ms
+26/09/01 15:21:16 INFO SparkContext: Starting job: first at LogAnalysis.scala:98
+26/09/01 15:21:16 INFO DAGScheduler: Got job 15 (first at LogAnalysis.scala:98) with 1 output partitions
+26/09/01 15:21:16 INFO DAGScheduler: Final stage: ResultStage 21 (first at LogAnalysis.scala:98)
+26/09/01 15:21:16 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 20)
+26/09/01 15:21:16 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:16 INFO DAGScheduler: Submitting ResultStage 21 (MapPartitionsRDD[63] at first at LogAnalysis.scala:98), which has no missing parents
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_25 stored as values in memory (estimated size 14.0 KiB, free 987.3 MiB)
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_25_piece0 stored as bytes in memory (estimated size 6.5 KiB, free 987.3 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Added broadcast_25_piece0 in memory on localhost:38659 (size: 6.5 KiB, free: 987.4 MiB)
+26/09/01 15:21:16 INFO SparkContext: Created broadcast 25 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:16 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 21 (MapPartitionsRDD[63] at first at LogAnalysis.scala:98) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:16 INFO BlockManagerInfo: Removed broadcast_22_piece0 on localhost:38659 in memory (size: 20.1 KiB, free: 987.4 MiB)
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Adding task set 21.0 with 1 tasks resource profile 0
+26/09/01 15:21:16 INFO TaskSetManager: Starting task 0.0 in stage 21.0 (TID 15) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:16 INFO Executor: Running task 0.0 in stage 21.0 (TID 15)
+26/09/01 15:21:16 INFO ShuffleBlockFetcherIterator: Getting 1 (66.0 B) non-empty blocks including 1 (66.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:16 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 13.381371 ms
+26/09/01 15:21:16 INFO Executor: Finished task 0.0 in stage 21.0 (TID 15). 3989 bytes result sent to driver
+26/09/01 15:21:16 INFO TaskSetManager: Finished task 0.0 in stage 21.0 (TID 15) in 29 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Removed TaskSet 21.0, whose tasks have all completed, from pool 
+26/09/01 15:21:16 INFO BlockManagerInfo: Removed broadcast_20_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:16 INFO DAGScheduler: ResultStage 21 (first at LogAnalysis.scala:98) finished in 0.049 s
+26/09/01 15:21:16 INFO DAGScheduler: Job 15 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Killing all running tasks in stage 21: Stage finished
+26/09/01 15:21:16 INFO DAGScheduler: Job 15 finished: first at LogAnalysis.scala:98, took 0.054063 s
+26/09/01 15:21:16 INFO BlockManagerInfo: Removed broadcast_21_piece0 on localhost:38659 in memory (size: 18.7 KiB, free: 987.5 MiB)
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 6.13025 ms
+Average response time: 304.00 ms
+===== SLOW REQUESTS (> 400 ms) =====
+26/09/01 15:21:16 INFO BlockManagerInfo: Removed broadcast_24_piece0 on localhost:38659 in memory (size: 9.6 KiB, free: 987.5 MiB)
+26/09/01 15:21:16 INFO FileSourceStrategy: Pushed Filters: IsNotNull(_c5),GreaterThan(_c5,400)
+26/09/01 15:21:16 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(_c5#22),(_c5#22 > 400)
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 12.999959 ms
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_26 stored as values in memory (estimated size 376.0 B, free 987.5 MiB)
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_26_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.4 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Added broadcast_26_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:16 INFO SparkContext: Created broadcast 26 from show at LogAnalysis.scala:110
+26/09/01 15:21:16 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:16 INFO SparkContext: Starting job: show at LogAnalysis.scala:110
+26/09/01 15:21:16 INFO DAGScheduler: Got job 16 (show at LogAnalysis.scala:110) with 1 output partitions
+26/09/01 15:21:16 INFO DAGScheduler: Final stage: ResultStage 22 (show at LogAnalysis.scala:110)
+26/09/01 15:21:16 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:16 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:16 INFO DAGScheduler: Submitting ResultStage 22 (MapPartitionsRDD[67] at show at LogAnalysis.scala:110), which has no missing parents
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_27 stored as values in memory (estimated size 18.5 KiB, free 987.4 MiB)
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_27_piece0 stored as bytes in memory (estimated size 8.5 KiB, free 987.4 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Added broadcast_27_piece0 in memory on localhost:38659 (size: 8.5 KiB, free: 987.5 MiB)
+26/09/01 15:21:16 INFO SparkContext: Created broadcast 27 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:16 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 22 (MapPartitionsRDD[67] at show at LogAnalysis.scala:110) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Adding task set 22.0 with 1 tasks resource profile 0
+26/09/01 15:21:16 INFO TaskSetManager: Starting task 0.0 in stage 22.0 (TID 16) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9618 bytes) 
+26/09/01 15:21:16 INFO Executor: Running task 0.0 in stage 22.0 (TID 16)
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 9.870095 ms
+26/09/01 15:21:16 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 4.289628 ms
+26/09/01 15:21:16 INFO Executor: Finished task 0.0 in stage 22.0 (TID 16). 1769 bytes result sent to driver
+26/09/01 15:21:16 INFO TaskSetManager: Finished task 0.0 in stage 22.0 (TID 16) in 42 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Removed TaskSet 22.0, whose tasks have all completed, from pool 
+26/09/01 15:21:16 INFO DAGScheduler: ResultStage 22 (show at LogAnalysis.scala:110) finished in 0.052 s
+26/09/01 15:21:16 INFO DAGScheduler: Job 16 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Killing all running tasks in stage 22: Stage finished
+26/09/01 15:21:16 INFO DAGScheduler: Job 16 finished: show at LogAnalysis.scala:110, took 0.057184 s
++-------------------+-----+------------+---------+------+-------------+
+|timestamp          |level|ip          |url      |status|response_time|
++-------------------+-----+------------+---------+------+-------------+
+|2026-09-01 10:15:10|ERROR|192.168.1.15|/payment |500   |450          |
+|2026-09-01 10:15:15|INFO |192.168.1.20|/products|200   |500          |
+|2026-09-01 10:15:20|ERROR|192.168.1.12|/payment |500   |700          |
++-------------------+-----+------------+---------+------+-------------+
+
+===== ERROR PERCENTAGE =====
+26/09/01 15:21:16 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:16 INFO FileSourceStrategy: Post-Scan Filters: 
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 6.691133 ms
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_28 stored as values in memory (estimated size 376.0 B, free 987.4 MiB)
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_28_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.4 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Added broadcast_28_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:16 INFO SparkContext: Created broadcast 28 from count at LogAnalysis.scala:115
+26/09/01 15:21:16 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:16 INFO DAGScheduler: Registering RDD 71 (count at LogAnalysis.scala:115) as input to shuffle 6
+26/09/01 15:21:16 INFO DAGScheduler: Got map stage job 17 (count at LogAnalysis.scala:115) with 1 output partitions
+26/09/01 15:21:16 INFO DAGScheduler: Final stage: ShuffleMapStage 23 (count at LogAnalysis.scala:115)
+26/09/01 15:21:16 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:16 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:16 INFO DAGScheduler: Submitting ShuffleMapStage 23 (MapPartitionsRDD[71] at count at LogAnalysis.scala:115), which has no missing parents
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_29 stored as values in memory (estimated size 17.9 KiB, free 987.4 MiB)
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_29_piece0 stored as bytes in memory (estimated size 8.8 KiB, free 987.4 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Added broadcast_29_piece0 in memory on localhost:38659 (size: 8.8 KiB, free: 987.4 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Removed broadcast_23_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:16 INFO SparkContext: Created broadcast 29 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:16 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 23 (MapPartitionsRDD[71] at count at LogAnalysis.scala:115) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Adding task set 23.0 with 1 tasks resource profile 0
+26/09/01 15:21:16 INFO TaskSetManager: Starting task 0.0 in stage 23.0 (TID 17) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:16 INFO Executor: Running task 0.0 in stage 23.0 (TID 17)
+26/09/01 15:21:16 INFO BlockManagerInfo: Removed broadcast_25_piece0 on localhost:38659 in memory (size: 6.5 KiB, free: 987.4 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Removed broadcast_27_piece0 on localhost:38659 in memory (size: 8.5 KiB, free: 987.5 MiB)
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 7.055402 ms
+26/09/01 15:21:16 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:16 INFO BlockManagerInfo: Removed broadcast_26_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 3.806424 ms
+26/09/01 15:21:16 INFO Executor: Finished task 0.0 in stage 23.0 (TID 17). 1925 bytes result sent to driver
+26/09/01 15:21:16 INFO TaskSetManager: Finished task 0.0 in stage 23.0 (TID 17) in 32 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Removed TaskSet 23.0, whose tasks have all completed, from pool 
+26/09/01 15:21:16 INFO DAGScheduler: ShuffleMapStage 23 (count at LogAnalysis.scala:115) finished in 0.050 s
+26/09/01 15:21:16 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:16 INFO DAGScheduler: running: Set()
+26/09/01 15:21:16 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:16 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:16 INFO SparkContext: Starting job: count at LogAnalysis.scala:115
+26/09/01 15:21:16 INFO DAGScheduler: Got job 18 (count at LogAnalysis.scala:115) with 1 output partitions
+26/09/01 15:21:16 INFO DAGScheduler: Final stage: ResultStage 25 (count at LogAnalysis.scala:115)
+26/09/01 15:21:16 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 24)
+26/09/01 15:21:16 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:16 INFO DAGScheduler: Submitting ResultStage 25 (MapPartitionsRDD[74] at count at LogAnalysis.scala:115), which has no missing parents
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_30 stored as values in memory (estimated size 12.5 KiB, free 987.5 MiB)
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_30_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 987.5 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Added broadcast_30_piece0 in memory on localhost:38659 (size: 5.9 KiB, free: 987.5 MiB)
+26/09/01 15:21:16 INFO SparkContext: Created broadcast 30 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:16 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 25 (MapPartitionsRDD[74] at count at LogAnalysis.scala:115) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Adding task set 25.0 with 1 tasks resource profile 0
+26/09/01 15:21:16 INFO TaskSetManager: Starting task 0.0 in stage 25.0 (TID 18) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:16 INFO Executor: Running task 0.0 in stage 25.0 (TID 18)
+26/09/01 15:21:16 INFO ShuffleBlockFetcherIterator: Getting 1 (60.0 B) non-empty blocks including 1 (60.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:16 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/09/01 15:21:16 INFO Executor: Finished task 0.0 in stage 25.0 (TID 18). 3995 bytes result sent to driver
+26/09/01 15:21:16 INFO TaskSetManager: Finished task 0.0 in stage 25.0 (TID 18) in 10 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Removed TaskSet 25.0, whose tasks have all completed, from pool 
+26/09/01 15:21:16 INFO DAGScheduler: ResultStage 25 (count at LogAnalysis.scala:115) finished in 0.020 s
+26/09/01 15:21:16 INFO DAGScheduler: Job 18 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Killing all running tasks in stage 25: Stage finished
+26/09/01 15:21:16 INFO DAGScheduler: Job 18 finished: count at LogAnalysis.scala:115, took 0.025712 s
+ERROR percentage: 30.00%
+===== AVERAGE RESPONSE TIME BY URL =====
+26/09/01 15:21:16 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:16 INFO FileSourceStrategy: Post-Scan Filters: 
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 17.843498 ms
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_31 stored as values in memory (estimated size 376.0 B, free 987.5 MiB)
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_31_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.4 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Added broadcast_31_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:16 INFO SparkContext: Created broadcast 31 from show at LogAnalysis.scala:130
+26/09/01 15:21:16 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:16 INFO DAGScheduler: Registering RDD 78 (show at LogAnalysis.scala:130) as input to shuffle 7
+26/09/01 15:21:16 INFO DAGScheduler: Got map stage job 19 (show at LogAnalysis.scala:130) with 1 output partitions
+26/09/01 15:21:16 INFO DAGScheduler: Final stage: ShuffleMapStage 26 (show at LogAnalysis.scala:130)
+26/09/01 15:21:16 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:16 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:16 INFO DAGScheduler: Submitting ShuffleMapStage 26 (MapPartitionsRDD[78] at show at LogAnalysis.scala:130), which has no missing parents
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_32 stored as values in memory (estimated size 44.6 KiB, free 987.4 MiB)
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_32_piece0 stored as bytes in memory (estimated size 20.5 KiB, free 987.4 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Added broadcast_32_piece0 in memory on localhost:38659 (size: 20.5 KiB, free: 987.4 MiB)
+26/09/01 15:21:16 INFO SparkContext: Created broadcast 32 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:16 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 26 (MapPartitionsRDD[78] at show at LogAnalysis.scala:130) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Adding task set 26.0 with 1 tasks resource profile 0
+26/09/01 15:21:16 INFO TaskSetManager: Starting task 0.0 in stage 26.0 (TID 19) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:16 INFO Executor: Running task 0.0 in stage 26.0 (TID 19)
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 15.758677 ms
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 3.32439 ms
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 4.589077 ms
+26/09/01 15:21:16 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 5.272982 ms
+26/09/01 15:21:16 INFO Executor: Finished task 0.0 in stage 26.0 (TID 19). 2719 bytes result sent to driver
+26/09/01 15:21:16 INFO TaskSetManager: Finished task 0.0 in stage 26.0 (TID 19) in 94 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Removed TaskSet 26.0, whose tasks have all completed, from pool 
+26/09/01 15:21:16 INFO DAGScheduler: ShuffleMapStage 26 (show at LogAnalysis.scala:130) finished in 0.104 s
+26/09/01 15:21:16 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:16 INFO DAGScheduler: running: Set()
+26/09/01 15:21:16 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:16 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:16 INFO ShufflePartitionsUtil: For shuffle(7), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 6.446265 ms
+26/09/01 15:21:16 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 8.832258 ms
+26/09/01 15:21:16 INFO SparkContext: Starting job: show at LogAnalysis.scala:130
+26/09/01 15:21:16 INFO DAGScheduler: Got job 20 (show at LogAnalysis.scala:130) with 1 output partitions
+26/09/01 15:21:16 INFO DAGScheduler: Final stage: ResultStage 28 (show at LogAnalysis.scala:130)
+26/09/01 15:21:16 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 27)
+26/09/01 15:21:16 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:16 INFO DAGScheduler: Submitting ResultStage 28 (MapPartitionsRDD[82] at show at LogAnalysis.scala:130), which has no missing parents
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_33 stored as values in memory (estimated size 48.4 KiB, free 987.3 MiB)
+26/09/01 15:21:16 INFO MemoryStore: Block broadcast_33_piece0 stored as bytes in memory (estimated size 22.3 KiB, free 987.3 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Added broadcast_33_piece0 in memory on localhost:38659 (size: 22.3 KiB, free: 987.4 MiB)
+26/09/01 15:21:16 INFO SparkContext: Created broadcast 33 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:16 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 28 (MapPartitionsRDD[82] at show at LogAnalysis.scala:130) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Adding task set 28.0 with 1 tasks resource profile 0
+26/09/01 15:21:16 INFO BlockManagerInfo: Removed broadcast_32_piece0 on localhost:38659 in memory (size: 20.5 KiB, free: 987.4 MiB)
+26/09/01 15:21:16 INFO TaskSetManager: Starting task 0.0 in stage 28.0 (TID 20) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:16 INFO Executor: Running task 0.0 in stage 28.0 (TID 20)
+26/09/01 15:21:16 INFO BlockManagerInfo: Removed broadcast_28_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Removed broadcast_30_piece0 on localhost:38659 in memory (size: 5.9 KiB, free: 987.5 MiB)
+26/09/01 15:21:16 INFO BlockManagerInfo: Removed broadcast_29_piece0 on localhost:38659 in memory (size: 8.8 KiB, free: 987.5 MiB)
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 9.666091 ms
+26/09/01 15:21:16 INFO ShuffleBlockFetcherIterator: Getting 1 (328.0 B) non-empty blocks including 1 (328.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:16 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 12.317565 ms
+26/09/01 15:21:16 INFO Executor: Finished task 0.0 in stage 28.0 (TID 20). 5273 bytes result sent to driver
+26/09/01 15:21:16 INFO TaskSetManager: Finished task 0.0 in stage 28.0 (TID 20) in 58 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Removed TaskSet 28.0, whose tasks have all completed, from pool 
+26/09/01 15:21:16 INFO DAGScheduler: ResultStage 28 (show at LogAnalysis.scala:130) finished in 0.078 s
+26/09/01 15:21:16 INFO DAGScheduler: Job 20 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:16 INFO TaskSchedulerImpl: Killing all running tasks in stage 28: Stage finished
+26/09/01 15:21:16 INFO DAGScheduler: Job 20 finished: show at LogAnalysis.scala:130, took 0.083825 s
+26/09/01 15:21:16 INFO CodeGenerator: Code generated in 11.026949 ms
++---------+---------------------+
+|url      |average_response_time|
++---------+---------------------+
+|/payment |575.0                |
+|/products|350.0                |
+|/login   |140.0                |
+|/home    |105.0                |
++---------+---------------------+
+
+===== ERROR COUNT BY URL =====
+26/09/01 15:21:16 INFO FileSourceStrategy: Pushed Filters: IsNotNull(_c1),EqualTo(_c1,ERROR)
+26/09/01 15:21:16 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(_c1#18),(_c1#18 = ERROR)
+26/09/01 15:21:17 INFO CodeGenerator: Code generated in 24.26324 ms
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_34 stored as values in memory (estimated size 376.0 B, free 987.4 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_34_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.4 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_34_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 34 from show at LogAnalysis.scala:140
+26/09/01 15:21:17 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:17 INFO DAGScheduler: Registering RDD 86 (show at LogAnalysis.scala:140) as input to shuffle 8
+26/09/01 15:21:17 INFO DAGScheduler: Got map stage job 21 (show at LogAnalysis.scala:140) with 1 output partitions
+26/09/01 15:21:17 INFO DAGScheduler: Final stage: ShuffleMapStage 29 (show at LogAnalysis.scala:140)
+26/09/01 15:21:17 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:17 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:17 INFO DAGScheduler: Submitting ShuffleMapStage 29 (MapPartitionsRDD[86] at show at LogAnalysis.scala:140), which has no missing parents
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_35 stored as values in memory (estimated size 41.4 KiB, free 987.4 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_35_piece0 stored as bytes in memory (estimated size 19.5 KiB, free 987.3 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_35_piece0 in memory on localhost:38659 (size: 19.5 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 35 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:17 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 29 (MapPartitionsRDD[86] at show at LogAnalysis.scala:140) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Adding task set 29.0 with 1 tasks resource profile 0
+26/09/01 15:21:17 INFO TaskSetManager: Starting task 0.0 in stage 29.0 (TID 21) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:17 INFO Executor: Running task 0.0 in stage 29.0 (TID 21)
+26/09/01 15:21:17 INFO CodeGenerator: Code generated in 23.002303 ms
+26/09/01 15:21:17 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:17 INFO CodeGenerator: Code generated in 9.540871 ms
+26/09/01 15:21:17 INFO Executor: Finished task 0.0 in stage 29.0 (TID 21). 2775 bytes result sent to driver
+26/09/01 15:21:17 INFO TaskSetManager: Finished task 0.0 in stage 29.0 (TID 21) in 76 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Removed TaskSet 29.0, whose tasks have all completed, from pool 
+26/09/01 15:21:17 INFO DAGScheduler: ShuffleMapStage 29 (show at LogAnalysis.scala:140) finished in 0.086 s
+26/09/01 15:21:17 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:17 INFO DAGScheduler: running: Set()
+26/09/01 15:21:17 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:17 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:17 INFO ShufflePartitionsUtil: For shuffle(8), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/09/01 15:21:17 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+26/09/01 15:21:17 INFO SparkContext: Starting job: show at LogAnalysis.scala:140
+26/09/01 15:21:17 INFO DAGScheduler: Got job 22 (show at LogAnalysis.scala:140) with 1 output partitions
+26/09/01 15:21:17 INFO DAGScheduler: Final stage: ResultStage 31 (show at LogAnalysis.scala:140)
+26/09/01 15:21:17 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 30)
+26/09/01 15:21:17 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:17 INFO DAGScheduler: Submitting ResultStage 31 (MapPartitionsRDD[90] at show at LogAnalysis.scala:140), which has no missing parents
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_36 stored as values in memory (estimated size 44.2 KiB, free 987.3 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_36_piece0 stored as bytes in memory (estimated size 21.0 KiB, free 987.3 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_36_piece0 in memory on localhost:38659 (size: 21.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 36 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:17 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 31 (MapPartitionsRDD[90] at show at LogAnalysis.scala:140) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Adding task set 31.0 with 1 tasks resource profile 0
+26/09/01 15:21:17 INFO TaskSetManager: Starting task 0.0 in stage 31.0 (TID 22) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:17 INFO Executor: Running task 0.0 in stage 31.0 (TID 22)
+26/09/01 15:21:17 INFO ShuffleBlockFetcherIterator: Getting 1 (144.0 B) non-empty blocks including 1 (144.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:17 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/09/01 15:21:17 INFO Executor: Finished task 0.0 in stage 31.0 (TID 22). 5223 bytes result sent to driver
+26/09/01 15:21:17 INFO TaskSetManager: Finished task 0.0 in stage 31.0 (TID 22) in 16 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Removed TaskSet 31.0, whose tasks have all completed, from pool 
+26/09/01 15:21:17 INFO DAGScheduler: ResultStage 31 (show at LogAnalysis.scala:140) finished in 0.026 s
+26/09/01 15:21:17 INFO DAGScheduler: Job 22 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Killing all running tasks in stage 31: Stage finished
+26/09/01 15:21:17 INFO DAGScheduler: Job 22 finished: show at LogAnalysis.scala:140, took 0.032393 s
++--------+-----+
+|url     |count|
++--------+-----+
+|/payment|2    |
+|/login  |1    |
++--------+-----+
+
+========================================
+        SPARK LOG ANALYSIS SUMMARY
+========================================
+26/09/01 15:21:17 INFO FileSourceStrategy: Pushed Filters: IsNotNull(_c4),EqualTo(_c4,200)
+26/09/01 15:21:17 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(_c4#21),(_c4#21 = 200)
+26/09/01 15:21:17 INFO CodeGenerator: Code generated in 5.434794 ms
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_37 stored as values in memory (estimated size 376.0 B, free 987.3 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Removed broadcast_35_piece0 on localhost:38659 in memory (size: 19.5 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Removed broadcast_31_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_37_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.3 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_37_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Removed broadcast_34_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 37 from count at LogAnalysis.scala:148
+26/09/01 15:21:17 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:17 INFO BlockManagerInfo: Removed broadcast_33_piece0 on localhost:38659 in memory (size: 22.3 KiB, free: 987.5 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Removed broadcast_36_piece0 on localhost:38659 in memory (size: 21.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:17 INFO DAGScheduler: Registering RDD 94 (count at LogAnalysis.scala:148) as input to shuffle 9
+26/09/01 15:21:17 INFO DAGScheduler: Got map stage job 23 (count at LogAnalysis.scala:148) with 1 output partitions
+26/09/01 15:21:17 INFO DAGScheduler: Final stage: ShuffleMapStage 32 (count at LogAnalysis.scala:148)
+26/09/01 15:21:17 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:17 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:17 INFO DAGScheduler: Submitting ShuffleMapStage 32 (MapPartitionsRDD[94] at count at LogAnalysis.scala:148), which has no missing parents
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_38 stored as values in memory (estimated size 18.7 KiB, free 987.5 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_38_piece0 stored as bytes in memory (estimated size 9.1 KiB, free 987.5 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_38_piece0 in memory on localhost:38659 (size: 9.1 KiB, free: 987.5 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 38 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:17 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 32 (MapPartitionsRDD[94] at count at LogAnalysis.scala:148) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Adding task set 32.0 with 1 tasks resource profile 0
+26/09/01 15:21:17 INFO TaskSetManager: Starting task 0.0 in stage 32.0 (TID 23) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:17 INFO Executor: Running task 0.0 in stage 32.0 (TID 23)
+26/09/01 15:21:17 INFO CodeGenerator: Code generated in 11.808684 ms
+26/09/01 15:21:17 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:17 INFO CodeGenerator: Code generated in 4.535938 ms
+26/09/01 15:21:17 INFO Executor: Finished task 0.0 in stage 32.0 (TID 23). 1981 bytes result sent to driver
+26/09/01 15:21:17 INFO TaskSetManager: Finished task 0.0 in stage 32.0 (TID 23) in 50 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Removed TaskSet 32.0, whose tasks have all completed, from pool 
+26/09/01 15:21:17 INFO DAGScheduler: ShuffleMapStage 32 (count at LogAnalysis.scala:148) finished in 0.061 s
+26/09/01 15:21:17 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:17 INFO DAGScheduler: running: Set()
+26/09/01 15:21:17 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:17 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:17 INFO SparkContext: Starting job: count at LogAnalysis.scala:148
+26/09/01 15:21:17 INFO DAGScheduler: Got job 24 (count at LogAnalysis.scala:148) with 1 output partitions
+26/09/01 15:21:17 INFO DAGScheduler: Final stage: ResultStage 34 (count at LogAnalysis.scala:148)
+26/09/01 15:21:17 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 33)
+26/09/01 15:21:17 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:17 INFO DAGScheduler: Submitting ResultStage 34 (MapPartitionsRDD[97] at count at LogAnalysis.scala:148), which has no missing parents
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_39 stored as values in memory (estimated size 12.5 KiB, free 987.5 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_39_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 987.5 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_39_piece0 in memory on localhost:38659 (size: 5.9 KiB, free: 987.5 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 39 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:17 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 34 (MapPartitionsRDD[97] at count at LogAnalysis.scala:148) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Adding task set 34.0 with 1 tasks resource profile 0
+26/09/01 15:21:17 INFO TaskSetManager: Starting task 0.0 in stage 34.0 (TID 24) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:17 INFO Executor: Running task 0.0 in stage 34.0 (TID 24)
+26/09/01 15:21:17 INFO ShuffleBlockFetcherIterator: Getting 1 (60.0 B) non-empty blocks including 1 (60.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:17 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+26/09/01 15:21:17 INFO Executor: Finished task 0.0 in stage 34.0 (TID 24). 3995 bytes result sent to driver
+26/09/01 15:21:17 INFO TaskSetManager: Finished task 0.0 in stage 34.0 (TID 24) in 10 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Removed TaskSet 34.0, whose tasks have all completed, from pool 
+26/09/01 15:21:17 INFO DAGScheduler: ResultStage 34 (count at LogAnalysis.scala:148) finished in 0.017 s
+26/09/01 15:21:17 INFO DAGScheduler: Job 24 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Killing all running tasks in stage 34: Stage finished
+26/09/01 15:21:17 INFO DAGScheduler: Job 24 finished: count at LogAnalysis.scala:148, took 0.021194 s
+26/09/01 15:21:17 INFO FileSourceStrategy: Pushed Filters: IsNotNull(_c5),GreaterThan(_c5,400)
+26/09/01 15:21:17 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(_c5#22),(_c5#22 > 400)
+26/09/01 15:21:17 INFO CodeGenerator: Code generated in 5.725781 ms
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_40 stored as values in memory (estimated size 376.0 B, free 987.5 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_40_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.4 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_40_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 40 from count at LogAnalysis.scala:151
+26/09/01 15:21:17 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:17 INFO DAGScheduler: Registering RDD 101 (count at LogAnalysis.scala:151) as input to shuffle 10
+26/09/01 15:21:17 INFO DAGScheduler: Got map stage job 25 (count at LogAnalysis.scala:151) with 1 output partitions
+26/09/01 15:21:17 INFO DAGScheduler: Final stage: ShuffleMapStage 35 (count at LogAnalysis.scala:151)
+26/09/01 15:21:17 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:17 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:17 INFO DAGScheduler: Submitting ShuffleMapStage 35 (MapPartitionsRDD[101] at count at LogAnalysis.scala:151), which has no missing parents
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_41 stored as values in memory (estimated size 18.7 KiB, free 987.4 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_41_piece0 stored as bytes in memory (estimated size 9.1 KiB, free 987.4 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_41_piece0 in memory on localhost:38659 (size: 9.1 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 41 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:17 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 35 (MapPartitionsRDD[101] at count at LogAnalysis.scala:151) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Adding task set 35.0 with 1 tasks resource profile 0
+26/09/01 15:21:17 INFO TaskSetManager: Starting task 0.0 in stage 35.0 (TID 25) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:17 INFO Executor: Running task 0.0 in stage 35.0 (TID 25)
+26/09/01 15:21:17 INFO CodeGenerator: Code generated in 11.482995 ms
+26/09/01 15:21:17 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:17 INFO CodeGenerator: Code generated in 3.098348 ms
+26/09/01 15:21:17 INFO Executor: Finished task 0.0 in stage 35.0 (TID 25). 1981 bytes result sent to driver
+26/09/01 15:21:17 INFO TaskSetManager: Finished task 0.0 in stage 35.0 (TID 25) in 35 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Removed TaskSet 35.0, whose tasks have all completed, from pool 
+26/09/01 15:21:17 INFO DAGScheduler: ShuffleMapStage 35 (count at LogAnalysis.scala:151) finished in 0.043 s
+26/09/01 15:21:17 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:17 INFO DAGScheduler: running: Set()
+26/09/01 15:21:17 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:17 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:17 INFO SparkContext: Starting job: count at LogAnalysis.scala:151
+26/09/01 15:21:17 INFO DAGScheduler: Got job 26 (count at LogAnalysis.scala:151) with 1 output partitions
+26/09/01 15:21:17 INFO DAGScheduler: Final stage: ResultStage 37 (count at LogAnalysis.scala:151)
+26/09/01 15:21:17 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 36)
+26/09/01 15:21:17 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:17 INFO DAGScheduler: Submitting ResultStage 37 (MapPartitionsRDD[104] at count at LogAnalysis.scala:151), which has no missing parents
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_42 stored as values in memory (estimated size 12.5 KiB, free 987.4 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_42_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 987.4 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_42_piece0 in memory on localhost:38659 (size: 5.9 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 42 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:17 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 37 (MapPartitionsRDD[104] at count at LogAnalysis.scala:151) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Adding task set 37.0 with 1 tasks resource profile 0
+26/09/01 15:21:17 INFO TaskSetManager: Starting task 0.0 in stage 37.0 (TID 26) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:17 INFO Executor: Running task 0.0 in stage 37.0 (TID 26)
+26/09/01 15:21:17 INFO ShuffleBlockFetcherIterator: Getting 1 (60.0 B) non-empty blocks including 1 (60.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:17 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/09/01 15:21:17 INFO Executor: Finished task 0.0 in stage 37.0 (TID 26). 3995 bytes result sent to driver
+26/09/01 15:21:17 INFO TaskSetManager: Finished task 0.0 in stage 37.0 (TID 26) in 10 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Removed TaskSet 37.0, whose tasks have all completed, from pool 
+26/09/01 15:21:17 INFO DAGScheduler: ResultStage 37 (count at LogAnalysis.scala:151) finished in 0.016 s
+26/09/01 15:21:17 INFO DAGScheduler: Job 26 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Killing all running tasks in stage 37: Stage finished
+26/09/01 15:21:17 INFO DAGScheduler: Job 26 finished: count at LogAnalysis.scala:151, took 0.019169 s
+26/09/01 15:21:17 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:17 INFO FileSourceStrategy: Post-Scan Filters: 
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_43 stored as values in memory (estimated size 376.0 B, free 987.4 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_43_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.3 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_43_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 43 from first at LogAnalysis.scala:153
+26/09/01 15:21:17 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:17 INFO DAGScheduler: Registering RDD 108 (first at LogAnalysis.scala:153) as input to shuffle 11
+26/09/01 15:21:17 INFO DAGScheduler: Got map stage job 27 (first at LogAnalysis.scala:153) with 1 output partitions
+26/09/01 15:21:17 INFO DAGScheduler: Final stage: ShuffleMapStage 38 (first at LogAnalysis.scala:153)
+26/09/01 15:21:17 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:17 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:17 INFO DAGScheduler: Submitting ShuffleMapStage 38 (MapPartitionsRDD[108] at first at LogAnalysis.scala:153), which has no missing parents
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_44 stored as values in memory (estimated size 39.6 KiB, free 987.3 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_44_piece0 stored as bytes in memory (estimated size 18.8 KiB, free 987.3 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_44_piece0 in memory on localhost:38659 (size: 18.8 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Removed broadcast_42_piece0 on localhost:38659 in memory (size: 5.9 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 44 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:17 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 38 (MapPartitionsRDD[108] at first at LogAnalysis.scala:153) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Adding task set 38.0 with 1 tasks resource profile 0
+26/09/01 15:21:17 INFO TaskSetManager: Starting task 0.0 in stage 38.0 (TID 27) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:17 INFO Executor: Running task 0.0 in stage 38.0 (TID 27)
+26/09/01 15:21:17 INFO BlockManagerInfo: Removed broadcast_40_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Removed broadcast_38_piece0 on localhost:38659 in memory (size: 9.1 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Removed broadcast_39_piece0 on localhost:38659 in memory (size: 5.9 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Removed broadcast_37_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:17 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:17 INFO BlockManagerInfo: Removed broadcast_41_piece0 on localhost:38659 in memory (size: 9.1 KiB, free: 987.5 MiB)
+26/09/01 15:21:17 INFO Executor: Finished task 0.0 in stage 38.0 (TID 27). 2719 bytes result sent to driver
+26/09/01 15:21:17 INFO TaskSetManager: Finished task 0.0 in stage 38.0 (TID 27) in 54 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Removed TaskSet 38.0, whose tasks have all completed, from pool 
+26/09/01 15:21:17 INFO DAGScheduler: ShuffleMapStage 38 (first at LogAnalysis.scala:153) finished in 0.069 s
+26/09/01 15:21:17 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:17 INFO DAGScheduler: running: Set()
+26/09/01 15:21:17 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:17 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:17 INFO ShufflePartitionsUtil: For shuffle(11), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/09/01 15:21:17 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+26/09/01 15:21:17 INFO SparkContext: Starting job: first at LogAnalysis.scala:153
+26/09/01 15:21:17 INFO DAGScheduler: Got job 28 (first at LogAnalysis.scala:153) with 1 output partitions
+26/09/01 15:21:17 INFO DAGScheduler: Final stage: ResultStage 40 (first at LogAnalysis.scala:153)
+26/09/01 15:21:17 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 39)
+26/09/01 15:21:17 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:17 INFO DAGScheduler: Submitting ResultStage 40 (MapPartitionsRDD[112] at first at LogAnalysis.scala:153), which has no missing parents
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_45 stored as values in memory (estimated size 42.6 KiB, free 987.4 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_45_piece0 stored as bytes in memory (estimated size 20.1 KiB, free 987.4 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_45_piece0 in memory on localhost:38659 (size: 20.1 KiB, free: 987.5 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 45 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:17 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 40 (MapPartitionsRDD[112] at first at LogAnalysis.scala:153) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Adding task set 40.0 with 1 tasks resource profile 0
+26/09/01 15:21:17 INFO TaskSetManager: Starting task 0.0 in stage 40.0 (TID 28) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:17 INFO Executor: Running task 0.0 in stage 40.0 (TID 28)
+26/09/01 15:21:17 INFO ShuffleBlockFetcherIterator: Getting 1 (296.0 B) non-empty blocks including 1 (296.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:17 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/09/01 15:21:17 INFO Executor: Finished task 0.0 in stage 40.0 (TID 28). 5126 bytes result sent to driver
+26/09/01 15:21:17 INFO TaskSetManager: Finished task 0.0 in stage 40.0 (TID 28) in 13 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Removed TaskSet 40.0, whose tasks have all completed, from pool 
+26/09/01 15:21:17 INFO DAGScheduler: ResultStage 40 (first at LogAnalysis.scala:153) finished in 0.020 s
+26/09/01 15:21:17 INFO DAGScheduler: Job 28 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Killing all running tasks in stage 40: Stage finished
+26/09/01 15:21:17 INFO DAGScheduler: Job 28 finished: first at LogAnalysis.scala:153, took 0.024922 s
+26/09/01 15:21:17 INFO CodeGenerator: Code generated in 4.327214 ms
+26/09/01 15:21:17 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:17 INFO FileSourceStrategy: Post-Scan Filters: 
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_46 stored as values in memory (estimated size 376.0 B, free 987.4 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_46_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.3 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_46_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 46 from first at LogAnalysis.scala:157
+26/09/01 15:21:17 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:17 INFO DAGScheduler: Registering RDD 116 (first at LogAnalysis.scala:157) as input to shuffle 12
+26/09/01 15:21:17 INFO DAGScheduler: Got map stage job 29 (first at LogAnalysis.scala:157) with 1 output partitions
+26/09/01 15:21:17 INFO DAGScheduler: Final stage: ShuffleMapStage 41 (first at LogAnalysis.scala:157)
+26/09/01 15:21:17 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:17 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:17 INFO DAGScheduler: Submitting ShuffleMapStage 41 (MapPartitionsRDD[116] at first at LogAnalysis.scala:157), which has no missing parents
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_47 stored as values in memory (estimated size 39.6 KiB, free 987.3 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_47_piece0 stored as bytes in memory (estimated size 18.8 KiB, free 987.3 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_47_piece0 in memory on localhost:38659 (size: 18.8 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 47 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:17 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 41 (MapPartitionsRDD[116] at first at LogAnalysis.scala:157) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Adding task set 41.0 with 1 tasks resource profile 0
+26/09/01 15:21:17 INFO TaskSetManager: Starting task 0.0 in stage 41.0 (TID 29) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:17 INFO Executor: Running task 0.0 in stage 41.0 (TID 29)
+26/09/01 15:21:17 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:17 INFO Executor: Finished task 0.0 in stage 41.0 (TID 29). 2719 bytes result sent to driver
+26/09/01 15:21:17 INFO TaskSetManager: Finished task 0.0 in stage 41.0 (TID 29) in 57 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Removed TaskSet 41.0, whose tasks have all completed, from pool 
+26/09/01 15:21:17 INFO DAGScheduler: ShuffleMapStage 41 (first at LogAnalysis.scala:157) finished in 0.064 s
+26/09/01 15:21:17 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:17 INFO DAGScheduler: running: Set()
+26/09/01 15:21:17 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:17 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:17 INFO ShufflePartitionsUtil: For shuffle(12), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/09/01 15:21:17 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+26/09/01 15:21:17 INFO SparkContext: Starting job: first at LogAnalysis.scala:157
+26/09/01 15:21:17 INFO DAGScheduler: Got job 30 (first at LogAnalysis.scala:157) with 1 output partitions
+26/09/01 15:21:17 INFO DAGScheduler: Final stage: ResultStage 43 (first at LogAnalysis.scala:157)
+26/09/01 15:21:17 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 42)
+26/09/01 15:21:17 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:17 INFO DAGScheduler: Submitting ResultStage 43 (MapPartitionsRDD[120] at first at LogAnalysis.scala:157), which has no missing parents
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_48 stored as values in memory (estimated size 42.6 KiB, free 987.2 MiB)
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_48_piece0 stored as bytes in memory (estimated size 20.1 KiB, free 987.2 MiB)
+26/09/01 15:21:17 INFO BlockManagerInfo: Added broadcast_48_piece0 in memory on localhost:38659 (size: 20.1 KiB, free: 987.4 MiB)
+26/09/01 15:21:17 INFO SparkContext: Created broadcast 48 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:17 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 43 (MapPartitionsRDD[120] at first at LogAnalysis.scala:157) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Adding task set 43.0 with 1 tasks resource profile 0
+26/09/01 15:21:17 INFO TaskSetManager: Starting task 0.0 in stage 43.0 (TID 30) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:17 INFO Executor: Running task 0.0 in stage 43.0 (TID 30)
+26/09/01 15:21:17 INFO ShuffleBlockFetcherIterator: Getting 1 (296.0 B) non-empty blocks including 1 (296.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:17 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/09/01 15:21:17 INFO Executor: Finished task 0.0 in stage 43.0 (TID 30). 5126 bytes result sent to driver
+26/09/01 15:21:17 INFO TaskSetManager: Finished task 0.0 in stage 43.0 (TID 30) in 17 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Removed TaskSet 43.0, whose tasks have all completed, from pool 
+26/09/01 15:21:17 INFO DAGScheduler: ResultStage 43 (first at LogAnalysis.scala:157) finished in 0.025 s
+26/09/01 15:21:17 INFO DAGScheduler: Job 30 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:17 INFO TaskSchedulerImpl: Killing all running tasks in stage 43: Stage finished
+26/09/01 15:21:17 INFO DAGScheduler: Job 30 finished: first at LogAnalysis.scala:157, took 0.028857 s
+26/09/01 15:21:17 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:17 INFO FileSourceStrategy: Post-Scan Filters: 
+26/09/01 15:21:17 INFO MemoryStore: Block broadcast_49 stored as values in memory (estimated size 376.0 B, free 987.2 MiB)
+26/09/01 15:21:18 INFO MemoryStore: Block broadcast_49_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.2 MiB)
+26/09/01 15:21:18 INFO BlockManagerInfo: Added broadcast_49_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:18 INFO SparkContext: Created broadcast 49 from first at LogAnalysis.scala:161
+26/09/01 15:21:18 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:18 INFO DAGScheduler: Registering RDD 124 (first at LogAnalysis.scala:161) as input to shuffle 13
+26/09/01 15:21:18 INFO DAGScheduler: Got map stage job 31 (first at LogAnalysis.scala:161) with 1 output partitions
+26/09/01 15:21:18 INFO DAGScheduler: Final stage: ShuffleMapStage 44 (first at LogAnalysis.scala:161)
+26/09/01 15:21:18 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:18 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:18 INFO DAGScheduler: Submitting ShuffleMapStage 44 (MapPartitionsRDD[124] at first at LogAnalysis.scala:161), which has no missing parents
+26/09/01 15:21:18 INFO MemoryStore: Block broadcast_50 stored as values in memory (estimated size 39.6 KiB, free 987.2 MiB)
+26/09/01 15:21:18 INFO MemoryStore: Block broadcast_50_piece0 stored as bytes in memory (estimated size 18.7 KiB, free 987.1 MiB)
+26/09/01 15:21:18 INFO BlockManagerInfo: Added broadcast_50_piece0 in memory on localhost:38659 (size: 18.7 KiB, free: 987.3 MiB)
+26/09/01 15:21:18 INFO SparkContext: Created broadcast 50 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:18 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 44 (MapPartitionsRDD[124] at first at LogAnalysis.scala:161) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:18 INFO TaskSchedulerImpl: Adding task set 44.0 with 1 tasks resource profile 0
+26/09/01 15:21:18 INFO TaskSetManager: Starting task 0.0 in stage 44.0 (TID 31) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:18 INFO Executor: Running task 0.0 in stage 44.0 (TID 31)
+26/09/01 15:21:18 INFO BlockManagerInfo: Removed broadcast_48_piece0 on localhost:38659 in memory (size: 20.1 KiB, free: 987.4 MiB)
+26/09/01 15:21:18 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:18 INFO BlockManagerInfo: Removed broadcast_44_piece0 on localhost:38659 in memory (size: 18.8 KiB, free: 987.4 MiB)
+26/09/01 15:21:18 INFO BlockManagerInfo: Removed broadcast_43_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:18 INFO BlockManagerInfo: Removed broadcast_47_piece0 on localhost:38659 in memory (size: 18.8 KiB, free: 987.4 MiB)
+26/09/01 15:21:18 INFO BlockManagerInfo: Removed broadcast_45_piece0 on localhost:38659 in memory (size: 20.1 KiB, free: 987.4 MiB)
+26/09/01 15:21:18 INFO BlockManagerInfo: Removed broadcast_46_piece0 on localhost:38659 in memory (size: 34.0 KiB, free: 987.5 MiB)
+26/09/01 15:21:18 INFO Executor: Finished task 0.0 in stage 44.0 (TID 31). 2762 bytes result sent to driver
+26/09/01 15:21:18 INFO TaskSetManager: Finished task 0.0 in stage 44.0 (TID 31) in 39 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:18 INFO TaskSchedulerImpl: Removed TaskSet 44.0, whose tasks have all completed, from pool 
+26/09/01 15:21:18 INFO DAGScheduler: ShuffleMapStage 44 (first at LogAnalysis.scala:161) finished in 0.050 s
+26/09/01 15:21:18 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:18 INFO DAGScheduler: running: Set()
+26/09/01 15:21:18 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:18 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:18 INFO ShufflePartitionsUtil: For shuffle(13), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/09/01 15:21:18 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+26/09/01 15:21:18 INFO SparkContext: Starting job: first at LogAnalysis.scala:161
+26/09/01 15:21:18 INFO DAGScheduler: Got job 32 (first at LogAnalysis.scala:161) with 1 output partitions
+26/09/01 15:21:18 INFO DAGScheduler: Final stage: ResultStage 46 (first at LogAnalysis.scala:161)
+26/09/01 15:21:18 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 45)
+26/09/01 15:21:18 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:18 INFO DAGScheduler: Submitting ResultStage 46 (MapPartitionsRDD[128] at first at LogAnalysis.scala:161), which has no missing parents
+26/09/01 15:21:18 INFO MemoryStore: Block broadcast_51 stored as values in memory (estimated size 42.5 KiB, free 987.4 MiB)
+26/09/01 15:21:18 INFO MemoryStore: Block broadcast_51_piece0 stored as bytes in memory (estimated size 20.1 KiB, free 987.4 MiB)
+26/09/01 15:21:18 INFO BlockManagerInfo: Added broadcast_51_piece0 in memory on localhost:38659 (size: 20.1 KiB, free: 987.5 MiB)
+26/09/01 15:21:18 INFO SparkContext: Created broadcast 51 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:18 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 46 (MapPartitionsRDD[128] at first at LogAnalysis.scala:161) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:18 INFO TaskSchedulerImpl: Adding task set 46.0 with 1 tasks resource profile 0
+26/09/01 15:21:18 INFO TaskSetManager: Starting task 0.0 in stage 46.0 (TID 32) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:18 INFO Executor: Running task 0.0 in stage 46.0 (TID 32)
+26/09/01 15:21:18 INFO ShuffleBlockFetcherIterator: Getting 1 (400.0 B) non-empty blocks including 1 (400.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:18 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+26/09/01 15:21:18 INFO Executor: Finished task 0.0 in stage 46.0 (TID 32). 5126 bytes result sent to driver
+26/09/01 15:21:18 INFO TaskSetManager: Finished task 0.0 in stage 46.0 (TID 32) in 22 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:18 INFO TaskSchedulerImpl: Removed TaskSet 46.0, whose tasks have all completed, from pool 
+26/09/01 15:21:18 INFO DAGScheduler: ResultStage 46 (first at LogAnalysis.scala:161) finished in 0.031 s
+26/09/01 15:21:18 INFO DAGScheduler: Job 32 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:18 INFO TaskSchedulerImpl: Killing all running tasks in stage 46: Stage finished
+26/09/01 15:21:18 INFO DAGScheduler: Job 32 finished: first at LogAnalysis.scala:161, took 0.038469 s
+26/09/01 15:21:18 INFO FileSourceStrategy: Pushed Filters: 
+26/09/01 15:21:18 INFO FileSourceStrategy: Post-Scan Filters: 
+26/09/01 15:21:18 INFO MemoryStore: Block broadcast_52 stored as values in memory (estimated size 376.0 B, free 987.4 MiB)
+26/09/01 15:21:18 INFO MemoryStore: Block broadcast_52_piece0 stored as bytes in memory (estimated size 34.0 KiB, free 987.3 MiB)
+26/09/01 15:21:18 INFO BlockManagerInfo: Added broadcast_52_piece0 in memory on localhost:38659 (size: 34.0 KiB, free: 987.4 MiB)
+26/09/01 15:21:18 INFO SparkContext: Created broadcast 52 from first at LogAnalysis.scala:165
+26/09/01 15:21:18 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/09/01 15:21:18 INFO DAGScheduler: Registering RDD 132 (first at LogAnalysis.scala:165) as input to shuffle 14
+26/09/01 15:21:18 INFO DAGScheduler: Got map stage job 33 (first at LogAnalysis.scala:165) with 1 output partitions
+26/09/01 15:21:18 INFO DAGScheduler: Final stage: ShuffleMapStage 47 (first at LogAnalysis.scala:165)
+26/09/01 15:21:18 INFO DAGScheduler: Parents of final stage: List()
+26/09/01 15:21:18 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:18 INFO DAGScheduler: Submitting ShuffleMapStage 47 (MapPartitionsRDD[132] at first at LogAnalysis.scala:165), which has no missing parents
+26/09/01 15:21:18 INFO MemoryStore: Block broadcast_53 stored as values in memory (estimated size 39.6 KiB, free 987.3 MiB)
+26/09/01 15:21:18 INFO MemoryStore: Block broadcast_53_piece0 stored as bytes in memory (estimated size 18.8 KiB, free 987.3 MiB)
+26/09/01 15:21:18 INFO BlockManagerInfo: Added broadcast_53_piece0 in memory on localhost:38659 (size: 18.8 KiB, free: 987.4 MiB)
+26/09/01 15:21:18 INFO SparkContext: Created broadcast 53 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:18 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 47 (MapPartitionsRDD[132] at first at LogAnalysis.scala:165) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:18 INFO TaskSchedulerImpl: Adding task set 47.0 with 1 tasks resource profile 0
+26/09/01 15:21:18 INFO TaskSetManager: Starting task 0.0 in stage 47.0 (TID 33) (localhost, executor driver, partition 0, PROCESS_LOCAL, 9607 bytes) 
+26/09/01 15:21:18 INFO Executor: Running task 0.0 in stage 47.0 (TID 33)
+26/09/01 15:21:18 INFO FileScanRDD: Reading File path: file:///home/sri/spark-log-analysis/data/application.log, range: 0-546, partition values: [empty row]
+26/09/01 15:21:18 INFO Executor: Finished task 0.0 in stage 47.0 (TID 33). 2719 bytes result sent to driver
+26/09/01 15:21:18 INFO TaskSetManager: Finished task 0.0 in stage 47.0 (TID 33) in 43 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:18 INFO TaskSchedulerImpl: Removed TaskSet 47.0, whose tasks have all completed, from pool 
+26/09/01 15:21:18 INFO DAGScheduler: ShuffleMapStage 47 (first at LogAnalysis.scala:165) finished in 0.050 s
+26/09/01 15:21:18 INFO DAGScheduler: looking for newly runnable stages
+26/09/01 15:21:18 INFO DAGScheduler: running: Set()
+26/09/01 15:21:18 INFO DAGScheduler: waiting: Set()
+26/09/01 15:21:18 INFO DAGScheduler: failed: Set()
+26/09/01 15:21:18 INFO ShufflePartitionsUtil: For shuffle(14), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/09/01 15:21:18 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+26/09/01 15:21:18 INFO SparkContext: Starting job: first at LogAnalysis.scala:165
+26/09/01 15:21:18 INFO DAGScheduler: Got job 34 (first at LogAnalysis.scala:165) with 1 output partitions
+26/09/01 15:21:18 INFO DAGScheduler: Final stage: ResultStage 49 (first at LogAnalysis.scala:165)
+26/09/01 15:21:18 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 48)
+26/09/01 15:21:18 INFO DAGScheduler: Missing parents: List()
+26/09/01 15:21:18 INFO DAGScheduler: Submitting ResultStage 49 (MapPartitionsRDD[136] at first at LogAnalysis.scala:165), which has no missing parents
+26/09/01 15:21:18 INFO MemoryStore: Block broadcast_54 stored as values in memory (estimated size 42.5 KiB, free 987.2 MiB)
+26/09/01 15:21:18 INFO MemoryStore: Block broadcast_54_piece0 stored as bytes in memory (estimated size 20.2 KiB, free 987.2 MiB)
+26/09/01 15:21:18 INFO BlockManagerInfo: Added broadcast_54_piece0 in memory on localhost:38659 (size: 20.2 KiB, free: 987.4 MiB)
+26/09/01 15:21:18 INFO SparkContext: Created broadcast 54 from broadcast at DAGScheduler.scala:1611
+26/09/01 15:21:18 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 49 (MapPartitionsRDD[136] at first at LogAnalysis.scala:165) (first 15 tasks are for partitions Vector(0))
+26/09/01 15:21:18 INFO TaskSchedulerImpl: Adding task set 49.0 with 1 tasks resource profile 0
+26/09/01 15:21:18 INFO TaskSetManager: Starting task 0.0 in stage 49.0 (TID 34) (localhost, executor driver, partition 0, NODE_LOCAL, 8999 bytes) 
+26/09/01 15:21:18 INFO Executor: Running task 0.0 in stage 49.0 (TID 34)
+26/09/01 15:21:18 INFO ShuffleBlockFetcherIterator: Getting 1 (400.0 B) non-empty blocks including 1 (400.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/09/01 15:21:18 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/09/01 15:21:18 INFO Executor: Finished task 0.0 in stage 49.0 (TID 34). 5126 bytes result sent to driver
+26/09/01 15:21:18 INFO TaskSetManager: Finished task 0.0 in stage 49.0 (TID 34) in 12 ms on localhost (executor driver) (1/1)
+26/09/01 15:21:18 INFO TaskSchedulerImpl: Removed TaskSet 49.0, whose tasks have all completed, from pool 
+26/09/01 15:21:18 INFO DAGScheduler: ResultStage 49 (first at LogAnalysis.scala:165) finished in 0.018 s
+26/09/01 15:21:18 INFO DAGScheduler: Job 34 is finished. Cancelling potential speculative or zombie tasks for this job
+26/09/01 15:21:18 INFO TaskSchedulerImpl: Killing all running tasks in stage 49: Stage finished
+26/09/01 15:21:18 INFO DAGScheduler: Job 34 finished: first at LogAnalysis.scala:165, took 0.021545 s
+Total Requests       : 10
+Successful Requests  : 7
+ERROR Requests       : 3
+ERROR Percentage     : 30.00%
+Average Response Time: 304.00 ms
+Slow Requests        : 3
+Most Requested URL   : /products (4 requests)
+Most Active IP       : 192.168.1.10 (4 requests)
+========================================
+26/09/01 15:21:18 INFO SparkContext: SparkContext is stopping with exitCode 0.
+26/09/01 15:21:18 INFO SparkUI: Stopped Spark web UI at http://localhost:4040
+26/09/01 15:21:18 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+26/09/01 15:21:18 INFO MemoryStore: MemoryStore cleared
+26/09/01 15:21:18 INFO BlockManager: BlockManager stopped
+26/09/01 15:21:18 INFO BlockManagerMaster: BlockManagerMaster stopped
+26/09/01 15:21:18 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+26/09/01 15:21:18 INFO SparkContext: Successfully stopped SparkContext
+26/09/01 15:21:18 INFO ShutdownHookManager: Shutdown hook called
+26/09/01 15:21:18 INFO ShutdownHookManager: Deleting directory /tmp/spark-ebae4066-d5ca-4e9f-92e2-bd263357aabf
+[success] elapsed time: 12 s
+[0J
