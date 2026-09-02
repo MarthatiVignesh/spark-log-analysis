@@ -1,0 +1,10 @@
+===== STATELESS WORD COUNT TEST OUTPUT =====
+Batch 1
+apple 2
+orange 1
+
+Batch 2
+apple 1
+banana 1
+
+Each batch is processed independently; counts are not carried forward.
