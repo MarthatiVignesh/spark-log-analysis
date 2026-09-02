@@ -1,19 +1,17 @@
 # Spark Log Analysis
 
-A practical Apache Spark project built with Scala to analyze web application log data. This project demonstrates Spark DataFrames, Spark SQL, Broadcast Variables, Accumulators, data-quality validation, CSV output generation, and Spark Streaming with DStreams.
+A practical Apache Spark + Scala project combining web-log analysis with aggregations, joins, window functions, execution-plan analysis, and Spark Streaming.
 
-## Project Overview
+## Technology Stack
 
-The application reads web application logs, converts raw records into a typed Spark DataFrame, validates data quality, performs analytical queries, and produces organized results.
-
-### Input Fields
-
-- `timestamp` — request timestamp
-- `level` — log level such as INFO or ERROR
-- `ip` — client IP address
-- `url` — requested endpoint
-- `status` — HTTP status code
-- `response_time` — response time in milliseconds
+- Scala 2.12.18
+- Apache Spark 3.5.6
+- Spark Core
+- Spark SQL
+- Spark Streaming
+- sbt 2.0.7
+- Java 17+
+- Ubuntu / WSL2
 
 ## Project Structure
 
@@ -26,6 +24,10 @@ spark-log-analysis/
 │
 ├── data/
 │   └── application.log
+│
+├── docs/
+│   ├── execution-plan.md
+│   └── terminal-output.svg
 │
 ├── output/
 │   ├── error-logs/
@@ -55,6 +57,7 @@ spark-log-analysis/
 │   ├── main/
 │   │   └── scala/
 │   │       ├── LogAnalysis.scala
+│   │       ├── AggregationsJoinsWindows.scala
 │   │       ├── StatelessWordCount.scala
 │   │       ├── StatefulWordCount.scala
 │   │       ├── StatefulErrorCounter.scala
@@ -64,72 +67,69 @@ spark-log-analysis/
 │       └── scala/
 │           └── LogAnalysisSpec.scala
 │
+├── OUTPUT.md
 ├── .gitignore
 ├── build.sbt
 └── README.md
 ```
 
-## Spark Features
+## 1. Log Analysis
 
-### DataFrames
-Structured log processing, filtering, grouping, aggregation, sorting, and CSV generation.
+`LogAnalysis.scala` processes web application logs using Spark DataFrames and Spark SQL. It demonstrates filtering, grouping, aggregation, CSV output, broadcast variables, accumulators, and data-quality validation.
 
-### Spark SQL
-The processed DataFrame is registered as a temporary view for SQL-based log analysis.
+Analyses include request counts, HTTP status analysis, error logs, unique IPs, URL analysis, response-time statistics, slow requests, IP-wise analysis, and Spark SQL queries.
 
-### Broadcast Variables
-A slow-request threshold is shared with Spark executors through a broadcast variable.
+## 2. Aggregations, Joins and Windows
 
-### Accumulators
-Counters are used for total, successful, error, and slow requests.
+`AggregationsJoinsWindows.scala` demonstrates:
 
-### Spark Streaming
-The project includes stateless and stateful DStream examples using a TCP socket on `localhost:9999` with 5-second micro-batches.
+- Simple `sum`, `avg`, `min`, `max`, and `count` aggregations
+- Product and customer grouping
+- Running totals using Window functions
+- Customer order ranking using `row_number()`
+- Inner joins using `customer_id`
+- Aggregation after joins
+- Extended Spark execution plans with `explain(true)`
+- Shuffle, Exchange, Sort, and broadcast-join concepts
 
-## Analyses
+The documented results are available in `OUTPUT.md`.
 
-1. Total request count
-2. Log-level analysis
-3. HTTP status analysis
-4. Error-log analysis
-5. Unique IP analysis
-6. URL request analysis
-7. URL and status analysis
-8. Response-time statistics
-9. Response time by URL
-10. Slow-request analysis
-11. IP-wise request analysis
-12. IP-wise error analysis
-13. Top requesting IP
-14. IP with most errors
-15. Spark SQL analysis
-16. Data quality validation
-17. Accumulator summary
+## 3. Spark Streaming
 
-## Technologies
+The project includes stateless and stateful DStream examples using TCP socket input on `localhost:9999` with 5-second micro-batches.
 
-- Scala 2.12
-- Apache Spark 3.5.6
-- Spark SQL
-- Spark Streaming
-- SBT
-- Java 17
-- Linux / WSL2
-- Git and GitHub
+```bash
+nc -lk 9999
+```
+
+Run an example in another terminal:
+
+```bash
+sbt "runMain StatelessWordCount"
+sbt "runMain StatefulWordCount"
+sbt "runMain StatefulErrorCounter"
+sbt "runMain LogStreaming"
+```
+
+Stateful applications use checkpointing to maintain state across micro-batches.
 
 ## How to Run
 
 ```bash
 cd ~/spark-log-analysis
 sbt compile
+```
+
+Run the main log-analysis application:
+
+```bash
 sbt run
 ```
 
-Save application output:
+Run the aggregations/joins/windows exercise:
 
 ```bash
-mkdir -p output
-sbt run > output/spark-log-analysis-output.txt 2>&1
+sbt "runMain AggregationsJoinsWindows"
 ```
 
 Run tests:
@@ -138,40 +138,16 @@ Run tests:
 sbt test
 ```
 
-## Spark Streaming
+## Documentation
 
-Start a TCP producer:
-
-```bash
-nc -lk 9999
-```
-
-Then run one application in another terminal:
-
-```bash
-sbt "runMain StatelessWordCount"
-```
-
-```bash
-sbt "runMain StatefulWordCount"
-```
-
-```bash
-sbt "runMain StatefulErrorCounter"
-```
-
-For the streaming log analyzer:
-
-```bash
-sbt "runMain LogStreaming"
-```
-
-Stateful applications use checkpointing to maintain state across micro-batches. Runtime checkpoint data is excluded from Git.
+- `OUTPUT.md` — documented results for the aggregations/joins/windows exercise.
+- `docs/execution-plan.md` — explanation of Spark logical and physical execution plans.
+- `docs/terminal-output.svg` — terminal-output visual.
 
 ## Testing
 
 `LogAnalysisSpec.scala` verifies record counts, successful and error requests, unique IPs, slow requests, duplicate records, null values, HTTP status validity, response-time validity, and overall data-quality validation.
 
-## Note
+## GitHub Actions
 
-Generated Spark output directories can contain multiple part files when Spark writes distributed output. The repository structure above represents the organized result files intended for project documentation and practice.
+`.github/workflows/ci.yml` runs compilation and tests automatically for pushes and pull requests targeting `main`.
