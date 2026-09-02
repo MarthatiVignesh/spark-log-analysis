@@ -1,0 +1,28 @@
+===== SPARK STREAMING ANALYSIS STARTED =====
+
+STREAMING LOG ANALYSIS - BATCH 1
+Total Logs       : 10
+INFO Logs        : 7
+ERROR Logs       : 3
+Slow Requests    : 3
+
+Status Code Analysis
+200 -> 7
+500 -> 3
+
+IP Address Analysis
+192.168.1.10 -> 4
+192.168.1.11 -> 2
+192.168.1.12 -> 2
+192.168.1.15 -> 1
+192.168.1.20 -> 1
+
+URL Analysis
+/products -> 4
+/home -> 2
+/login -> 2
+/payment -> 2
+
+Total records processed so far: 10
+===== ALL EXPECTED LOGS PROCESSED =====
+===== STOPPING SPARK STREAMING =====
