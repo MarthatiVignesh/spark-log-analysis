@@ -1,0 +1,6 @@
+===== STATEFUL ERROR COUNTER TEST OUTPUT =====
+Batch 1: Running ERROR Count = 1
+Batch 2: Running ERROR Count = 3
+Batch 3: Running ERROR Count = 4
+
+The error counter is cumulative across micro-batches.
